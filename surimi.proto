@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "SurimiController";
+
+package surimi;
+
+// The workflow service definition.
+service Workflow {
+  // init
+  rpc Init (InitRequest) returns (InitReply);
+}
+
+// The request message containing the config.
+message InitRequest {
+  string experimentId = 1;
+  string areaName = 2;
+}
+
+// The response message containing the result.
+message InitReply {
+  bool ok = 1;
+  string message = 2;
+}
