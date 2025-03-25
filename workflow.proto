@@ -4,13 +4,12 @@ option csharp_namespace = "SurimiWorkflow";
 
 package surimi;
 
-import "surimi.proto";
+import "init_request.proto";
+import "species_price.proto";
 import "google/protobuf/empty.proto";
 
-// The workflow service definition.
+// The workflow service definition. All models should implement this interface
 service Workflow {
-    // init
     rpc Init (InitRequest) returns (google.protobuf.Empty);
-    // update prices
-    rpc UpdatePrices (SpeciesPriceList) returns (google.protobuf.Empty);
+    rpc UpdatePrices (SpeciesPrices) returns (google.protobuf.Empty);
 }

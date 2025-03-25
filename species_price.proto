@@ -1,16 +1,11 @@
 syntax = "proto3";
 
-option csharp_namespace = "Surimi";
+option csharp_namespace = "SurimiSpeciesPrice";
 option java_package = "eu.project.surimi";
 
 package surimi;
 
 import "google/protobuf/timestamp.proto";
-
-// The request message containing the config.
-message InitRequest {
-    string experiment_id = 1;
-}
 
 message SpeciesPrice {
     string species_id = 1;          // 3-alpha code of https://www.fao.org/fishery/en/collection/asfis
@@ -21,6 +16,6 @@ message SpeciesPrice {
     google.protobuf.Timestamp timestamp = 6; // RFC3339 
 }
 
-message SpeciesPriceList {
+message SpeciesPrices {
     repeated SpeciesPrice prices = 1;
 }
