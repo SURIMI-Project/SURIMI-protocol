@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "SurimiController";
+
+package surimi;
+
+import "google/protobuf/empty.proto";
+
+service Controller{
+    // run simulation
+    rpc RunSimulation (google.protobuf.Empty) returns (google.protobuf.Empty);
+}

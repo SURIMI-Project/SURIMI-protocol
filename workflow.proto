@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "SurimiWorkflow";
+
+package surimi;
+
+import "surimi.proto";
+import "google/protobuf/empty.proto";
+
+// The workflow service definition.
+service Workflow {
+    // init
+    rpc Init (InitRequest) returns (google.protobuf.Empty);
+    // update prices
+    rpc UpdatePrices (SpeciesPriceList) returns (google.protobuf.Empty);
+}

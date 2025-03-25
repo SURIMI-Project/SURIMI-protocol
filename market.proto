@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "SurimiMarket";
+
+package surimi;
+
+import "google/protobuf/empty.proto";
+import "surimi.proto";
+
+service Market {
+    // get prices
+    rpc GetPrices (google.protobuf.Empty) returns (SpeciesPriceList);
+
+    //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
+    //rpc TriggerUpdate (EmptyRequest) returns (EmptyRequest);
+    //rpc StartSimulation (SimulationRequest) returns (EmptyRequest);
+}
