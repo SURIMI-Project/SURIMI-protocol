@@ -1,21 +1,21 @@
 syntax = "proto3";
 
-option csharp_namespace = "Surimi";
-option java_package = "eu.project.surimi";
-
 package surimi.v1;
 
 import "surimi/v1/species_price.proto";
 
-message GetSpeciesPricesRequest {};
+option csharp_namespace = "Surimi";
+option java_package = "eu.project.surimi";
+
+message GetSpeciesPricesRequest {}
 message GetSpeciesPricesResponse {
-    repeated SpeciesPrice prices = 1;
-};
+  repeated SpeciesPrice prices = 1;
+}
 
 service MarketService {
-    rpc GetSpeciesPrices (GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
+  rpc GetSpeciesPrices(GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
 
-    //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
-    //rpc TriggerUpdate (EmptyRequest) returns (EmptyRequest);
-    //rpc StartSimulation (SimulationRequest) returns (EmptyRequest);
+  //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
+  //rpc TriggerUpdate (EmptyRequest) returns (EmptyRequest);
+  //rpc StartSimulation (SimulationRequest) returns (EmptyRequest);
 }
