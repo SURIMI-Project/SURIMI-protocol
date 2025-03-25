@@ -1,9 +1,9 @@
 syntax = "proto3";
 
+package surimi.v1;
+
 option csharp_namespace = "Surimi";
 option java_package = "eu.project.surimi";
-
-package surimi.v1;
 
 message RunSimulationRequest {}
 message RunSimulationResponse {}

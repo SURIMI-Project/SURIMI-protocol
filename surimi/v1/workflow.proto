@@ -1,23 +1,23 @@
 syntax = "proto3";
 
-option csharp_namespace = "Surimi";
-option java_package = "eu.project.surimi";
-
 package surimi.v1;
 
 import "surimi/v1/species_price.proto";
 
+option csharp_namespace = "Surimi";
+option java_package = "eu.project.surimi";
+
 message UpdatePricesRequest {
-    repeated SpeciesPrice prices = 1;
-};
-message UpdatePricesResponse {};
-message InitRequest {
-    string experiment_id = 1;
+  repeated SpeciesPrice prices = 1;
 }
-message InitResponse {};
+message UpdatePricesResponse {}
+message InitRequest {
+  string experiment_id = 1;
+}
+message InitResponse {}
 
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
-    rpc Init (InitRequest) returns (InitResponse);
-    rpc UpdatePrices (UpdatePricesRequest) returns (UpdatePricesResponse);
+  rpc Init(InitRequest) returns (InitResponse);
+  rpc UpdatePrices(UpdatePricesRequest) returns (UpdatePricesResponse);
 }
