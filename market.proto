@@ -5,11 +5,10 @@ option csharp_namespace = "SurimiMarket";
 package surimi;
 
 import "google/protobuf/empty.proto";
-import "surimi.proto";
+import "species_price.proto";
 
 service Market {
-    // get prices
-    rpc GetPrices (google.protobuf.Empty) returns (SpeciesPriceList);
+    rpc GetSpeciesPrices (google.protobuf.Empty) returns (SpeciesPrices);
 
     //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
     //rpc TriggerUpdate (EmptyRequest) returns (EmptyRequest);
