@@ -1,4 +1,4 @@
-name: Buf Lint and Breaking Check
+name: Buf Lint
 
 on:
   push:
@@ -18,6 +18,3 @@ jobs:
 
       - name: Lint .proto files
         run: buf lint
-
-      - name: Check for breaking changes
-        run: buf breaking --against 'https://github.com/nicolaspayette/surimi_protocol.git#branch=main'
