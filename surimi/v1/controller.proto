@@ -5,8 +5,9 @@ option java_package = "eu.project.surimi";
 
 package surimi.v1;
 
-import "google/protobuf/empty.proto";
+message RunSimulationRequest {}
+message RunSimulationResponse {}
 
 service ControllerService {
-    rpc RunSimulation (google.protobuf.Empty) returns (google.protobuf.Empty);
+  rpc RunSimulation(RunSimulationRequest) returns (RunSimulationResponse);
 }

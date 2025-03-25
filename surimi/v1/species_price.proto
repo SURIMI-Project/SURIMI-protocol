@@ -15,7 +15,3 @@ message SpeciesPrice {
     string currency = 5;            // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
     google.protobuf.Timestamp timestamp = 6; // RFC3339 
 }
-
-message SpeciesPrices {
-    repeated SpeciesPrice prices = 1;
-}

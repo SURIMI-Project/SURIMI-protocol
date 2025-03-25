@@ -5,11 +5,15 @@ option java_package = "eu.project.surimi";
 
 package surimi.v1;
 
-import "google/protobuf/empty.proto";
 import "surimi/v1/species_price.proto";
 
+message GetSpeciesPricesRequest {};
+message GetSpeciesPricesResponse {
+    repeated SpeciesPrice prices = 1;
+};
+
 service MarketService {
-    rpc GetSpeciesPrices (google.protobuf.Empty) returns (SpeciesPrices);
+    rpc GetSpeciesPrices (GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
 
     //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
     //rpc TriggerUpdate (EmptyRequest) returns (EmptyRequest);
