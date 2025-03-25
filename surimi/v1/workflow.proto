@@ -5,12 +5,19 @@ option java_package = "eu.project.surimi";
 
 package surimi.v1;
 
-import "surimi/v1/init_request.proto";
 import "surimi/v1/species_price.proto";
-import "google/protobuf/empty.proto";
+
+message UpdatePricesRequest {
+    repeated SpeciesPrice prices = 1;
+};
+message UpdatePricesResponse {};
+message InitRequest {
+    string experiment_id = 1;
+}
+message InitResponse {};
 
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
-    rpc Init (InitRequest) returns (google.protobuf.Empty);
-    rpc UpdatePrices (SpeciesPrices) returns (google.protobuf.Empty);
+    rpc Init (InitRequest) returns (InitResponse);
+    rpc UpdatePrices (UpdatePricesRequest) returns (UpdatePricesResponse);
 }
