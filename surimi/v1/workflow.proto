@@ -7,14 +7,14 @@ import "surimi/v1/species_price.proto";
 option csharp_namespace = "Surimi";
 option java_package = "eu.project.surimi";
 
-message UpdatePricesRequest {
-  repeated SpeciesPrice prices = 1;
-}
-message UpdatePricesResponse {}
 message InitRequest {
   string experiment_id = 1;
 }
 message InitResponse {}
+message UpdatePricesRequest {
+  repeated SpeciesPrice prices = 1;
+}
+message UpdatePricesResponse {}
 
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
