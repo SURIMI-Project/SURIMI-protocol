@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-option csharp_namespace = "SurimiSpeciesPrice";
+option csharp_namespace = "Surimi";
 option java_package = "eu.project.surimi";
 
-package surimi;
+package surimi.v1;
 
 import "google/protobuf/timestamp.proto";
 

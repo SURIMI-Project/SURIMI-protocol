@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-option csharp_namespace = "SurimiInitRequest";
+option csharp_namespace = "Surimi";
 option java_package = "eu.project.surimi";
 
-package surimi;
+package surimi.v1;
 
 message InitRequest {
     string experiment_id = 1;

@@ -1,14 +1,14 @@
 syntax = "proto3";
 
-option csharp_namespace = "SurimiMarket";
+option csharp_namespace = "Surimi";
 option java_package = "eu.project.surimi";
 
-package surimi;
+package surimi.v1;
 
 import "google/protobuf/empty.proto";
-import "species_price.proto";
+import "surimi/v1/species_price.proto";
 
-service Market {
+service MarketService {
     rpc GetSpeciesPrices (google.protobuf.Empty) returns (SpeciesPrices);
 
     //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
