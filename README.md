@@ -1,6 +1,6 @@
 ![Buf Lint](https://github.com/nicolaspayette/surimi_protocol/actions/workflows/buf.yml/badge.svg)
 
-# surimi_protocol
+# SURIMI protocol files
 
 Protobuf definitions for inter-model communication within the [Surimi project](https://www.surimi-project.eu/).
 
