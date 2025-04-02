@@ -13,5 +13,5 @@ message SpeciesPrice {
   double price = 3;
   string measurement_unit = 4; // https://ucum.org/ucum
   string currency = 5; // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
-  google.protobuf.Timestamp timestamp = 6; // RFC3339
+  google.protobuf.Timestamp timestamp = 6;
 }
