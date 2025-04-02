@@ -5,7 +5,11 @@ package surimi.v1;
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message RunSimulationRequest {}
+message RunSimulationRequest {
+  int32 first_year = 1;
+  int32 last_year = 2;
+}
+
 message RunSimulationResponse {}
 
 service ControllerService {
