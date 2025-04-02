@@ -16,8 +16,15 @@ message UpdatePricesRequest {
 }
 message UpdatePricesResponse {}
 
+message SimulateStepRequest {
+  int32 year = 1;
+  int32 month = 2;
+}
+message SimulateStepResponse {}
+
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
   rpc Init(InitRequest) returns (InitResponse);
   rpc UpdatePrices(UpdatePricesRequest) returns (UpdatePricesResponse);
+  rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
 }
