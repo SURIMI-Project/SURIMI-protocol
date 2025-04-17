@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message SalesSummary {
+  string market_id = 1;
+  string measurement_unit = 2;
+  string currency = 3;
+  repeated Sale sales = 4;
+  google.protobuf.Timestamp start_date_time = 5;
+  google.protobuf.Timestamp end_date_time = 6;
+}
+
+message Sale {
+  string species_id = 1;
+  double quantity = 2;
+  double value = 3;
+}
