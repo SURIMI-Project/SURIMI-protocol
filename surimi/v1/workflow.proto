@@ -34,15 +34,6 @@ message SimulateStepResponse {
   google.protobuf.Timestamp date_time = 1; // current date and time at the end of the simulation step
 }
 
-message RequestBiomassRequest {
-  string simulation_id = 1;
-}
-
-message RequestBiomassResponse {
-  string measurement_unit = 1; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 2;
-}
-
 message UpdateBiomassRequest {
   string simulation_id = 1;
   string measurement_unit = 2; // https://ucum.org/ucum
@@ -56,6 +47,5 @@ service WorkflowService {
   rpc Init(InitRequest) returns (InitResponse);
   rpc UpdatePrices(UpdatePricesRequest) returns (UpdatePricesResponse);
   rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
-  rpc RequestBiomass(RequestBiomassRequest) returns (RequestBiomassResponse);
   rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
 }
