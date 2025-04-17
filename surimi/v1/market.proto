@@ -7,15 +7,13 @@ import "surimi/v1/species_price.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message GetSpeciesPricesRequest {}
+message GetSpeciesPricesRequest {
+  string simulation_id = 1;
+}
 message GetSpeciesPricesResponse {
   repeated SpeciesPrice prices = 1;
 }
 
 service MarketService {
   rpc GetSpeciesPrices(GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
-
-  //rpc SendUpdatePrices (EmptyRequest) returns (stream MarketMessage);
-  //rpc TriggerUpdate (EmptyRequest) returns (EmptyRequest);
-  //rpc StartSimulation (SimulationRequest) returns (EmptyRequest);
 }
