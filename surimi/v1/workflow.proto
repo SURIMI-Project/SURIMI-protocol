@@ -30,9 +30,7 @@ message SimulateStepRequest {
   string simulation_id = 1;
 }
 
-message SimulateStepResponse {
-  google.protobuf.Timestamp date_time = 1; // current date and time at the end of the simulation step
-}
+message SimulateStepResponse {}
 
 message UpdateBiomassRequest {
   string simulation_id = 1;
