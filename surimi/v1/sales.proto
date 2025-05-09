@@ -12,8 +12,6 @@ message SalesSummary {
   string measurement_unit = 2;
   string currency = 3;
   repeated Sale sales = 4;
-  google.protobuf.Timestamp start_date_time = 5;
-  google.protobuf.Timestamp end_date_time = 6;
 }
 
 message Sale {
