@@ -27,7 +27,7 @@ message GetGrossCatchesRequest {
 
 message GetGrossCatchesResponse {
   string measurement_unit = 1; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 2;
+  repeated FleetBiomassGrids fleet_biomass_grids = 2;
 }
 
 message GetLiveDiscardsRequest {
@@ -38,7 +38,7 @@ message GetLiveDiscardsRequest {
 
 message GetLiveDiscardsResponse {
   string measurement_unit = 1; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 2;
+  repeated FleetBiomassGrids fleet_biomass_grids = 2;
 }
 
 message GetDeadDiscardsRequest {
@@ -49,7 +49,7 @@ message GetDeadDiscardsRequest {
 
 message GetDeadDiscardsResponse {
   string measurement_unit = 1; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 2;
+  repeated FleetBiomassGrids fleet_biomass_grids = 2;
 }
 
 service AgentsService {
