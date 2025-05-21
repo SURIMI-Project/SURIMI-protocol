@@ -11,7 +11,7 @@ message FleetBiomassGrids {
 }
 
 message BiomassGrid {
-  string species_id = 1; // 3-alpha code of https://www.fao.org/fishery/en/collection/asfis
+  string species_code = 1; // 3-alpha code of https://www.fao.org/fishery/en/collection/asfis
   repeated BiomassCell biomass_cells = 2;
 }
 

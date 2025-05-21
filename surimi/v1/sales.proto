@@ -13,7 +13,7 @@ message SalesSummary {
 }
 
 message Sale {
-  string species_id = 1;
+  string species_code = 1;
   double quantity = 2;
   double value = 3;
 }
