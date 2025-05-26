@@ -30,7 +30,7 @@ message GetCatchDispositionSummaryResponse {
   repeated DispositionGrid disposition_grids = 2;
 }
 
-service AgentsService {
+service FisheryService {
   rpc GetSalesSummary(GetSalesSummaryRequest) returns (GetSalesSummaryResponse);
   rpc GetCatchDispositionSummary(GetCatchDispositionSummaryRequest) returns (GetCatchDispositionSummaryResponse);
 }
