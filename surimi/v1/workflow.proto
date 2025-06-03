@@ -3,8 +3,6 @@ syntax = "proto3";
 package surimi.v1;
 
 import "google/protobuf/timestamp.proto";
-import "surimi/v1/biomass.proto";
-import "surimi/v1/species_price.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
@@ -20,30 +18,14 @@ message InitRequest {
 
 message InitResponse {}
 
-message UpdatePricesRequest {
-  string simulation_id = 1;
-  repeated SpeciesPrice prices = 2;
-}
-message UpdatePricesResponse {}
-
 message SimulateStepRequest {
   string simulation_id = 1;
 }
 
 message SimulateStepResponse {}
 
-message UpdateBiomassRequest {
-  string simulation_id = 1;
-  string measurement_unit = 2; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 3;
-}
-
-message UpdateBiomassResponse {}
-
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
   rpc Init(InitRequest) returns (InitResponse);
-  rpc UpdatePrices(UpdatePricesRequest) returns (UpdatePricesResponse);
   rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
-  rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
 }
