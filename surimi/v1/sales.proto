@@ -7,13 +7,14 @@ option java_package = "eu.project.surimi";
 
 message SalesSummary {
   string market_id = 1;
-  string measurement_unit = 2;
-  string currency = 3;
+  string currency = 2;
+  string measurement_unit = 3;
   repeated Sale sales = 4;
 }
 
 message Sale {
-  string species_code = 1;
-  double quantity = 2;
-  double value = 3;
+  string category_code = 1;
+  string species_code = 2;
+  double quantity = 3;
+  double value = 4;
 }
