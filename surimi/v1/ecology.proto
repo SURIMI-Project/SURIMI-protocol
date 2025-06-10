@@ -12,14 +12,12 @@ message GetBiomassRequest {
 }
 
 message GetBiomassResponse {
-  string measurement_unit = 1; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 2;
+  BiomassSummary biomass_summary = 1;
 }
 
 message UpdateBiomassRequest {
   string simulation_id = 1;
-  string measurement_unit = 2; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 3;
+  BiomassSummary biomass_summary = 2;
 }
 
 message UpdateBiomassResponse {}
