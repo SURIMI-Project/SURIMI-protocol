@@ -18,3 +18,8 @@ message DispositionCell {// center of the cell
   double live_discards = 4;
   double dead_discards = 5;
 }
+
+message CatchDispositionSummary {
+  string measurement_unit = 1; // https://ucum.org/ucum
+  repeated DispositionGrid disposition_grids = 2;
+}
