@@ -16,13 +16,17 @@ message InitRequest {
   // repeated string relevant_species = 4;	// list of species that are relevant for the simulation
 }
 
-message InitResponse {}
+message InitResponse {
+  string simulation_id = 1;
+}
 
 message SimulateStepRequest {
   string simulation_id = 1;
 }
 
-message SimulateStepResponse {}
+message SimulateStepResponse {
+  string simulation_id = 1;
+}
 
 // The workflow service definition. All models should implement this interface
 service WorkflowService {

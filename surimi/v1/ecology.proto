@@ -12,7 +12,8 @@ message GetBiomassRequest {
 }
 
 message GetBiomassResponse {
-  BiomassSummary biomass_summary = 1;
+  string simulation_id = 1;
+  BiomassSummary biomass_summary = 2;
 }
 
 message UpdateBiomassRequest {
@@ -20,7 +21,9 @@ message UpdateBiomassRequest {
   BiomassSummary biomass_summary = 2;
 }
 
-message UpdateBiomassResponse {}
+message UpdateBiomassResponse {
+  string simulation_id = 1;
+}
 
 service EcologyService {
   rpc GetBiomass(GetBiomassRequest) returns (GetBiomassResponse);
