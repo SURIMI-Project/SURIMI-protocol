@@ -29,7 +29,8 @@ message GetSalesRequest {
 }
 
 message GetSalesResponse {
-  repeated SalesSummary sales_summaries = 1;
+  string simulation_id = 1;
+  repeated SalesSummary sales_summaries = 2;
 }
 
 message UpdateSalesRequest {
@@ -39,7 +40,9 @@ message UpdateSalesRequest {
   repeated SalesSummary sales_summaries = 4;
 }
 
-message UpdateSalesResponse {}
+message UpdateSalesResponse {
+  string simulation_id = 1;
+}
 
 service MarketService {
   rpc GetSpeciesPrices(GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);

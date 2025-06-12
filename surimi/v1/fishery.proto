@@ -15,7 +15,8 @@ message GetCatchDispositionRequest {
 }
 
 message GetCatchDispositionResponse {
-  CatchDispositionSummary catch_disposition_summary = 1;
+  string simulation_id = 1;
+  CatchDispositionSummary catch_disposition_summary = 2;
 }
 
 message UpdateCatchDispositionRequest {
@@ -23,7 +24,9 @@ message UpdateCatchDispositionRequest {
   CatchDispositionSummary catch_disposition_summary = 2;
 }
 
-message UpdateCatchDispositionResponse {}
+message UpdateCatchDispositionResponse {
+  string simulation_id = 1;
+}
 
 service FisheryService {
   rpc GetCatchDisposition(GetCatchDispositionRequest) returns (GetCatchDispositionResponse);

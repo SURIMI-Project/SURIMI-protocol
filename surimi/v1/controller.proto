@@ -26,7 +26,9 @@ message RunSimulationRequest {
   string simulation_duration = 4; // duration of the simulation (10Y) in ISO 8601 duration format
 }
 
-message RunSimulationResponse {}
+message RunSimulationResponse {
+  string simulation_id = 1;
+}
 
 service ControllerService {
   rpc InitSimulation(InitSimulationRequest) returns (InitSimulationResponse);
