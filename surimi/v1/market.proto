@@ -16,11 +16,13 @@ message GetSpeciesPricesResponse {
   repeated SpeciesPrice prices = 1;
 }
 
-message UpdatePricesRequest {
+message UpdateSpeciesPricesRequest {
   string simulation_id = 1;
   repeated SpeciesPrice prices = 2;
 }
-message UpdatePricesResponse {}
+message UpdateSpeciesPricesResponse {
+  string simulation_id = 1;
+}
 
 message GetSalesRequest {
   string simulation_id = 1;
@@ -46,7 +48,7 @@ message UpdateSalesResponse {
 
 service MarketService {
   rpc GetSpeciesPrices(GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
-  rpc UpdatePrices(UpdatePricesRequest) returns (UpdatePricesResponse);
+  rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
   rpc GetSales(GetSalesRequest) returns (GetSalesResponse);
   rpc UpdateSales(UpdateSalesRequest) returns (UpdateSalesResponse);
 }
