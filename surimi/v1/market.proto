@@ -14,7 +14,7 @@ message GetSpeciesPricesRequest {
 }
 message GetSpeciesPricesResponse {
   string simulation_id = 1;
-  repeated SpeciesPrice prices = 1;
+  repeated SpeciesPrice prices = 2;
 }
 
 message UpdateSpeciesPricesRequest {
