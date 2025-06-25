@@ -39,6 +39,7 @@ message SimulateStepResponse {}
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
   rpc Initialize(InitializeRequest) returns (InitializeResponse);
+  rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
   rpc Finalize(FinalizeRequest) returns (FinalizeResponse);
   rpc Cancel(CancelRequest) returns (CancelResponse);
 }
