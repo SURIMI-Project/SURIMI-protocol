@@ -16,19 +16,25 @@ message InitialiseRequest {
   // repeated string relevant_species = 4;	// list of species that are relevant for the simulation
 }
 
-message InitialiseResponse {}
+message InitialiseResponse {
+  string simulation_id = 1;
+}
 
 message FinaliseRequest {
   string simulation_id = 1;
 }
 
-message FinaliseResponse {}
+message FinaliseResponse {
+  string simulation_id = 1;
+}
 
 message CancelRequest {
   string simulation_id = 1;
 }
 
-message CancelResponse {}
+message CancelResponse {
+  string simulation_id = 1;
+}
 
 message SimulateStepRequest {
   string simulation_id = 1;
