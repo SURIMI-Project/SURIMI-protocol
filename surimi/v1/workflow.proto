@@ -7,7 +7,7 @@ import "google/protobuf/timestamp.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message InitRequest {
+message InitializeRequest {
   string simulation_id = 1;
   string scenario_id = 2; // model configuration (Area, fleet, species, etc.)
   // string user_id = 2;	// user id will come from authentication
@@ -16,20 +16,29 @@ message InitRequest {
   // repeated string relevant_species = 4;	// list of species that are relevant for the simulation
 }
 
-message InitResponse {
+message InitializeResponse {}
+
+message FinalizeRequest {
   string simulation_id = 1;
 }
+
+message FinalizeResponse {}
+
+message CancelRequest {
+  string simulation_id = 1;
+}
+
+message CancelResponse {}
 
 message SimulateStepRequest {
   string simulation_id = 1;
 }
 
-message SimulateStepResponse {
-  string simulation_id = 1;
-}
+message SimulateStepResponse {}
 
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
-  rpc Init(InitRequest) returns (InitResponse);
-  rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
+  rpc Initialize(InitializeRequest) returns (InitializeResponse);
+  rpc Finalize(FinalizeRequest) returns (FinalizeResponse);
+  rpc Cancel(CancelRequest) returns (CancelResponse);
 }
