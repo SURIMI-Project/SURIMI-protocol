@@ -1,5 +1,3 @@
-![Buf Lint](https://github.com/Official-EwE/SURIMI-protocol/actions/workflows/buf.yml/badge.svg)
-
 ## Contents:
 
 - [SURIMI protocol files](#surimi-protocol-files)
