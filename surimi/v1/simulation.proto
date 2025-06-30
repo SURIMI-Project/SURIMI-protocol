@@ -16,4 +16,5 @@ message Simulation {
   google.protobuf.Timestamp simulation_current = 6; // current date and time of the simulation
   string status = 7; // status of the simulation. Initializing, t.b.d.
   string ecology_host = 8; // address of the ecology host that runs this simulation
+  string simulation_duration = 9; // duration of the simulation (10Y) in ISO 8601 duration format
 }
