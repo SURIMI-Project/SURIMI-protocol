@@ -1,5 +1,11 @@
-![Buf Lint](https://github.com/nicolaspayette/surimi_protocol/actions/workflows/buf.yml/badge.svg)
+![Buf Lint](https://github.com/Official-EwE/SURIMI-protocol/actions/workflows/buf.yml/badge.svg)
 
+## Contents:
+
+- [SURIMI protocol files](#surimi-protocol-files)
+- [Style guide](#style-guide)
+  - [Message structure](#message-structure)
+  - [Guidelines for services](#guidelines-for-services)
 # SURIMI protocol files
 
 Protobuf definitions for inter-model communication within the [Surimi project](https://www.surimi-project.eu/).
