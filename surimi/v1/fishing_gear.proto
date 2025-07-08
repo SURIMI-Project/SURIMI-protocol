@@ -2,14 +2,11 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "surimi/v1/country.proto";
-
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message FishingGear {
   string gear_code = 1; // max 3 chars code. PS, TBB etc. see https://openknowledge.fao.org/handle/20.500.14283/cb4966en
-  Country flag = 2; // the code of the country the vessel is registered in
-  string vessel_length_class = 3; //https://dcf.ec.europa.eu/data-calls/definitions-and-terminology/f/fleet-segment-dcf-eu-map_en
-  string scale = 4; // the scale of the fishing operation, e.g. "Artisanal" "Industrial" "Indigenous"
+  string vessel_length_class = 2; //https://dcf.ec.europa.eu/data-calls/definitions-and-terminology/f/fleet-segment-dcf-eu-map_en
+  string scale = 3; // the scale of the fishing operation, e.g. "Artisanal" "Industrial" "Indigenous"
 }

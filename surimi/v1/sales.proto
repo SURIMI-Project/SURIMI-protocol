@@ -2,13 +2,17 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/fishing_gear.proto";
+import "surimi/v1/species.proto";
+
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message Sale {
-  string species_code = 1;
-  double quantity = 2;
-  double value = 3;
+  Species species = 1;
+  FishingGear fishing_gear = 2;
+  double quantity = 3;
+  double value = 4;
 }
 
 message SalesSummary {

@@ -2,13 +2,17 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/fishing_gear.proto";
+import "surimi/v1/species.proto";
+
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message DispositionGrid {
-  string gear_code = 1; // max 3 chars code. PS, TBB etc. see https://openknowledge.fao.org/handle/20.500.14283/cb4966en
-  string species_code = 2; // 3-alpha code of https://www.fao.org/fishery/en/collection/asfis
-  repeated DispositionCell disposition_cells = 3;
+  Species species = 1;
+  FishingGear fishing_gear = 2;
+  string flag = 3; // 3 letter country code (ISO 3166-1 alpha-3)
+  repeated DispositionCell disposition_cells = 4;
 }
 
 message DispositionCell {// center of the cell
