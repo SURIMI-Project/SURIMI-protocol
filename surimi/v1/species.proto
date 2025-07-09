@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message Species {
+  string species_code = 1;
+  string length_class = 2; // e.g. "Small", "Medium", "Large"
+  string age = 3;
+  string stage = 4;
+}

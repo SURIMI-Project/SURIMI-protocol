@@ -1,12 +1,29 @@
 ## Contents:
-
 - [SURIMI protocol files](#surimi-protocol-files)
+- [Services List](#services-list)
+  - [Fishery Services](#fishery-services)
+  - [Ecology Services](#ecology-services)
+  - [Market Services](#market-services)
 - [Style guide](#style-guide)
   - [Message structure](#message-structure)
   - [Guidelines for services](#guidelines-for-services)
+
 # SURIMI protocol files
 
 Protobuf definitions for inter-model communication within the [Surimi project](https://www.surimi-project.eu/).
+
+# Services List
+The SURIMI protocol is divided into several services, each defined in its own `.proto` file. Below is a list of the main services and their purposes:
+- Fishery (Contains services related to fisheries, such as catches)
+- Ecology (Contains services related to ecological data, such as biomass)
+- Market (Contains services related to market data, such as prices and sales)
+## Fishery Services
+The CatchDispositionSummary contains information about the catch, such as the species, the amount caught, and the fishing gear used.
+UpdatecatchDisposition(..) can be called for every Species seperately, even if the entire harvest is discarded.
+
+## Ecology Services
+
+## Market Services
 
 ## Style guide
 

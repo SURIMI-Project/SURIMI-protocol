@@ -7,11 +7,11 @@ import "surimi/v1/simulation.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message InitSimulationRequest {
+message InitialiseSimulationRequest {
   Simulation simulation = 1;
 }
 
-message InitSimulationResponse {
+message InitialiseSimulationResponse {
   string simulation_id = 1;
 }
 
@@ -38,7 +38,7 @@ message GetAllSimulationsResponse {
 }
 
 service ControllerService {
-  rpc InitSimulation(InitSimulationRequest) returns (InitSimulationResponse);
+  rpc InitialiseSimulation(InitialiseSimulationRequest) returns (InitialiseSimulationResponse);
   rpc RunSimulation(RunSimulationRequest) returns (RunSimulationResponse);
   rpc CancelSimulation(CancelSimulationRequest) returns (CancelSimulationResponse);
   rpc GetAllSimulations(GetAllSimulationsRequest) returns (GetAllSimulationsResponse);

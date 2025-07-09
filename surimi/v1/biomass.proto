@@ -2,11 +2,13 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/species.proto";
+
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message BiomassGrid {
-  string species_code = 1; // 3-alpha code of https://www.fao.org/fishery/en/collection/asfis
+  Species species = 1;
   repeated BiomassCell biomass_cells = 2;
 }
 
