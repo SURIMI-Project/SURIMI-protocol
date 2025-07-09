@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "surimi/v1/fishing_gear.proto";
+import "surimi/v1/fleet_segment.proto";
 import "surimi/v1/species.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -10,7 +10,7 @@ option java_package = "eu.project.surimi";
 
 message Sale {
   Species species = 1;
-  FishingGear fishing_gear = 2;
+  FleetSegment fleet_segment = 2;
   double quantity = 3;
   double value = 4;
 }
