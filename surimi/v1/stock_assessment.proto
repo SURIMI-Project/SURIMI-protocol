@@ -6,9 +6,11 @@ option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message CreateStockAssessmentRequest {
+  option deprecated = true;
   string simulation_id = 1;
 }
 message CreateStockAssessmentResponse {
+  option deprecated = true;
   string simulation_id = 1;
 }
 
