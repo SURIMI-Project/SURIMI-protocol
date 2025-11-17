@@ -52,3 +52,12 @@ Regarding dates and information requests, there are two common cases:
 * Services are grouped by their entities. The "Get..." and the "Update..." of an entity (for example Biomass) are described in the same file.
 * All Requests and Responses contain the simulation_id, so in an a-synchonous scenario, the response can be matched to the correct simulation.
 * The Request and Response objects should be as empty as possible. Generate a Request from a Response should be simple. No unnecessary properties, like 'measurement_unit'.
+
+
+### Breaking changes
+When making breaking changes to the protocol files, the Github action will fail.
+
+When you add the `buf skip breaking` label to the PR, the "Breaking" check is skipped.
+
+See https://buf.build/docs/bsr/ci-cd/github-actions/#skip-breaking-change-detection-using-labels
+
