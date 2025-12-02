@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/coordinate_reference_system.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message Geography {
+  string cell_identification = 1;
+  CoordinateReferenceSystem crs = 2;
+  double xres = 3;
+  double yres = 4;
+  int32 ncol = 5;
+  int32 nrow = 6;
+  double xmin = 7;
+  double xmax = 8;
+  double ymin = 9;
+  double ymax = 10;
+}

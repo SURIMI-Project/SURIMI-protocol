@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/market_init.proto";
+import "surimi/v1/currency.proto";
+import "surimi/v1/species_init.proto";
+import "surimi/v1/fleet_segment_init.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message Items {
+  string biomass_unit = 1;
+  repeated MarketInit markets = 2;
+  repeated Currency currencies = 3;
+  repeated SpeciesInit species = 4;
+  repeated FleetSegmentInit fleet_segments = 5;
+}
