@@ -7,7 +7,7 @@ option java_package = "eu.project.surimi";
 
 message Standards {
   string date_and_time = 1;
-  string species_code = 2; 
+  string species_code = 2;
   string gear_code = 3;
   string life_stage = 4;
   string market_code = 5;

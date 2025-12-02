@@ -2,10 +2,10 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "surimi/v1/market_init.proto";
 import "surimi/v1/currency.proto";
-import "surimi/v1/species_init.proto";
 import "surimi/v1/fleet_segment_init.proto";
+import "surimi/v1/market_init.proto";
+import "surimi/v1/species_init.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";

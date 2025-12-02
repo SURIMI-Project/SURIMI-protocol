@@ -15,5 +15,5 @@ message Simulation {
   google.protobuf.Timestamp end_time = 3; // start date and time of the simulation
   string time_step = 4; // time step size (e.g . 1 day, 1 month, 1 year) in ISO 8601 duration format
   Geography geography = 5;
-  Standards standards= 6;
+  Standards standards = 6;
 }
