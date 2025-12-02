@@ -7,6 +7,6 @@ option java_package = "eu.project.surimi";
 
 message CoordinateReferenceSystem {
   string name = 1;
-  string authority = 2; // e.g. "Small", "Medium", "Large"
+  string authority = 2;
   string code = 3;
 }

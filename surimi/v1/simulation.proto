@@ -4,6 +4,7 @@ package surimi.v1;
 
 import "google/protobuf/timestamp.proto";
 import "surimi/v1/geography.proto";
+import "surimi/v1/items.proto";
 import "surimi/v1/standards.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -16,4 +17,5 @@ message Simulation {
   string time_step = 4; // time step size (e.g . 1 day, 1 month, 1 year) in ISO 8601 duration format
   Geography geography = 5;
   Standards standards = 6;
+  Items items = 7;
 }
