@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Defines the origin point of raster cells in a spatial grid.
+enum RasterCellOrigin {
+  RASTER_CELL_ORIGIN_UNSPECIFIED = 0;
+  RASTER_CELL_ORIGIN_CENTROID = 1; // Cell origin is at the center of the cell.
+  RASTER_CELL_ORIGIN_TOP_LEFT = 2;
+  RASTER_CELL_ORIGIN_TOP_RIGHT = 3;
+  RASTER_CELL_ORIGIN_BOTTOM_LEFT = 4;
+  RASTER_CELL_ORIGIN_BOTTOM_RIGHT = 5;
+}

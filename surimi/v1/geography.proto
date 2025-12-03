@@ -3,12 +3,13 @@ syntax = "proto3";
 package surimi.v1;
 
 import "surimi/v1/coordinate_reference_system.proto";
+import "surimi/v1/raster_cell_origin.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message Geography {
-  string cell_identification = 1;
+  RasterCellOrigin raster_cell_origin = 1;
   CoordinateReferenceSystem crs = 2;
   double xres = 3;
   double yres = 4;
