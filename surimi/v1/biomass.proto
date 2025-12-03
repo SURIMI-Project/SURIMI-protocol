@@ -19,6 +19,5 @@ message BiomassCell {// center of the cell
 }
 
 message BiomassSummary {
-  string measurement_unit = 1; // https://ucum.org/ucum
-  repeated BiomassGrid biomass_grids = 2;
+  repeated BiomassGrid biomass_grids = 1;
 }

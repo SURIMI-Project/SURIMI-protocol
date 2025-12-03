@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/measurement.proto";
+
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
@@ -13,5 +15,5 @@ message Standards {
   string market_code = 5;
   string currency = 6;
   string flag = 7;
-  string unit = 8;
+  Measurement measurements = 8;
 }

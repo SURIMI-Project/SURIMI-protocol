@@ -11,9 +11,8 @@ option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message Items {
-  string biomass_unit = 1;
-  repeated Market markets = 2;
-  repeated Currency currencies = 3;
-  repeated Species species = 4;
-  repeated FleetSegment fleet_segments = 5;
+  repeated Market markets = 1;
+  repeated Currency currencies = 2;
+  repeated Species species = 3;
+  repeated FleetSegment fleet_segments = 4;
 }

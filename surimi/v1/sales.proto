@@ -17,7 +17,6 @@ message Sale {
 
 message SalesSummary {
   string market_code = 1; // for the western med case, 2 letter country code (ISO 3166-1 alpha-2) plus 3 letter port code according to https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
-  string measurement_unit = 2;
-  string currency = 3;
-  repeated Sale sales = 4;
+  string currency = 2;
+  repeated Sale sales = 3;
 }
