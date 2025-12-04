@@ -10,6 +10,7 @@ option java_package = "eu.project.surimi";
 message InitialiseRequest {
   string simulation_id = 1;
   Simulation simulation = 2;
+  string scenario_id = 3;
 }
 
 message InitialiseResponse {
