@@ -2,16 +2,15 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "google/protobuf/timestamp.proto";
+import "surimi/v1/simulation.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message InitialiseRequest {
   string simulation_id = 1;
-  string scenario_id = 2; // model configuration (Area, fleet, species, etc.)
-  google.protobuf.Timestamp start_date_time = 3; // start date and time of the simulation
-  string step_size = 4; // time step size (e.g . 1 day, 1 month, 1 year) in ISO 8601 duration format
+  Simulation simulation = 2;
+  string scenario_id = 3;
 }
 
 message InitialiseResponse {

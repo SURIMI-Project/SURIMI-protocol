@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message CoordinateReferenceSystem {
+  string name = 1;
+  string authority = 2;
+  string code = 3;
+}

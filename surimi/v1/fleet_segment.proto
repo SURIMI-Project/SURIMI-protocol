@@ -9,5 +9,5 @@ message FleetSegment {
   string gear_code = 1; // max 3 chars code. PS, TBB etc. see https://openknowledge.fao.org/handle/20.500.14283/cb4966en
   string vessel_length_class = 2; //https://dcf.ec.europa.eu/data-calls/definitions-and-terminology/f/fleet-segment-dcf-eu-map_en
   string scale = 3; // the scale of the fishing operation, e.g. "Artisanal" "Industrial" "Indigenous"
-  string flag = 4; // 3 letter country code (ISO 3166-1 alpha-3)
+  string country_code = 4; // 3 letter country code (ISO 3166-1 alpha-3)
 }

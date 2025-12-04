@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/measurement.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message Standards {
+  string date_and_time = 1;
+  string species_code = 2;
+  string gear_code = 3;
+  string life_stage = 4;
+  string market_code = 5;
+  string currency = 6;
+  string country_code = 7; // 3 letter country code (ISO 3166-1 alpha-3)
+  Measurement measurements = 8;
+}

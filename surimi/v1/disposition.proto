@@ -23,6 +23,5 @@ message DispositionCell {// center of the cell
 }
 
 message CatchDispositionSummary {
-  string measurement_unit = 1; // https://ucum.org/ucum
-  repeated DispositionGrid disposition_grids = 2;
+  repeated DispositionGrid disposition_grids = 1;
 }

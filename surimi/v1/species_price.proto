@@ -13,7 +13,6 @@ message SpeciesPrice {
   string gear_code = 2;
   string market_code = 3; // for the western med case, 2 letter country code (ISO 3166-1 alpha-2) plus 3 letter port code according to https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
   double price = 4;
-  string measurement_unit = 5; // https://ucum.org/ucum
-  string currency = 6; // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
-  google.protobuf.Timestamp timestamp = 7;
+  string currency = 5; // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
+  google.protobuf.Timestamp timestamp = 6;
 }

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/unit.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message Measurement {
+  string system = 1; // e.g. "SI"
+  repeated Unit units = 2;
+}
