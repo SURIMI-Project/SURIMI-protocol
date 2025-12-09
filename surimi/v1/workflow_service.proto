@@ -12,7 +12,6 @@ message InitialiseRequest {
   string simulation_id = 1;
   Simulation simulation = 2;
   string scenario_id = 3;
-  google.protobuf.Timestamp end_date_time = 4; // end date and time of the simulation
 }
 
 message InitialiseResponse {
