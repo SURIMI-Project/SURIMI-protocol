@@ -18,4 +18,5 @@ message SimulationStatus { // represents the status of a simulation as shown in 
   google.protobuf.Duration simulation_duration = 7; // duration of the simulation run
   google.protobuf.Timestamp simulation_current = 8; // current date and time of the simulation
   string ecology_host = 9; // address of the ecology host that runs this simulation
+  int32 order = 10; // order of the simulation in the list of simulations
 }
