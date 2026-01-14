@@ -44,7 +44,7 @@ message GetAllSimulationStatusesResponse {
 }
 
 // The ControllerService is called to send commands to the simulation controller. For example by a GUI.
-// Ít's also used to check the status of all simulations, so the GUI can display them.
+// It's also used to check the status of all simulations, so the GUI can display them.
 service ControllerService {
   // Initialises a new simulation with the given scenario_id, a simulation_id and the requested end date and time.
   rpc InitialiseSimulation(InitialiseSimulationRequest) returns (InitialiseSimulationResponse);
