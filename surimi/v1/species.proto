@@ -7,7 +7,8 @@ option java_package = "eu.project.surimi";
 
 message Species {
   string species_code = 1;
-  string length_class = 2; // e.g. "Small", "Medium", "Large"
+  // e.g. "Small", "Medium", "Large"
+  string length_class = 2;
   string age = 3;
   string life_stage = 4;
 }

@@ -14,12 +14,20 @@ message SimulationStatus {
   string simulation_id = 1;
   // current scenario that is simulated
   string scenario_id = 2;
-  google.protobuf.Timestamp start_date_time = 3; // start date and time of the simulation
-  google.protobuf.Timestamp end_date_time = 4; // end date and time of the simulation
-  string status = 5; // status of the simulation. Initializing, t.b.d.
-  google.protobuf.Timestamp simulation_started = 6; // date and time the simulation run was started
-  google.protobuf.Duration simulation_duration = 7; // duration of the simulation run
-  google.protobuf.Timestamp simulation_current = 8; // current date and time of the simulation
-  string ecology_host = 9; // address of the ecology host that runs this simulation
-  int32 order = 10; // order of the simulation in the list of simulations
+  // start date and time of the simulation
+  google.protobuf.Timestamp start_date_time = 3;
+  // end date and time of the simulation
+  google.protobuf.Timestamp end_date_time = 4;
+  // status of the simulation. Initializing, t.b.d.
+  string status = 5;
+  // date and time the simulation run was started
+  google.protobuf.Timestamp simulation_started = 6;
+  // duration of the simulation run
+  google.protobuf.Duration simulation_duration = 7;
+  // current date and time of the simulation
+  google.protobuf.Timestamp simulation_current = 8;
+  // address of the ecology host that runs this simulation
+  string ecology_host = 9;
+  // order of the simulation in the list of simulations
+  int32 order = 10;
 }

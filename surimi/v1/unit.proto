@@ -6,6 +6,8 @@ option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message Unit {
-  string quantity = 1; // e.g. "mass"
-  string unit = 2; // e.g. "kg"
+  // e.g. "mass"
+  string quantity = 1;
+  // e.g. "kg"
+  string unit = 2;
 }
