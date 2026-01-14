@@ -1,8 +1,8 @@
 syntax = "proto3";
 
 package surimi.v1;
-// Workflow service for managing simulation lifecycle
 
+import "google/protobuf/timestamp.proto";
 import "surimi/v1/simulation.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -37,13 +37,15 @@ message CancelResponse {
 
 message SimulateStepRequest {
   string simulation_id = 1;
+  // current date and time of the simulation
+  google.protobuf.Timestamp current_date_time = 2;
 }
 
 message SimulateStepResponse {
   string simulation_id = 1;
 }
 
-// The workflow service definition. All models should implement this interface
+// The workflow service definition. It controlls initialising, starting, canceling And finalising a simulation.  All models should implement this interface.
 service WorkflowService {
   // Initialise a new simulation
   // The InitialiseRequest message contains a 'contract' of the simulation, describing the context in which the simulation will run.
@@ -53,6 +55,8 @@ service WorkflowService {
   // And that the model won't send back data that is not part of the contract.
   // The InitialiseRequest message also contains the start date of the simulation, the maximum end date of the simulation and the step size.
   // If the model cannot honor the contract, it should throw a GrpcException, containing a descriptive error message.
+  //
+  // The controller creates the InitialiseRequest.Simulation object by reading a yaml configuration file that describes the scenario to be simulated.
   rpc Initialise(InitialiseRequest) returns (InitialiseResponse);
   // This call requests the model to simulate a single time step. The model can perform all calculations.
   rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);

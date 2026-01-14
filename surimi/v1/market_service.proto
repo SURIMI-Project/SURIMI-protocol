@@ -49,9 +49,14 @@ message UpdateSalesResponse {
   string simulation_id = 1;
 }
 
+// The market service definition contains methods that have to do with market data. It contains methods to get And update species prices And sales.
 service MarketService {
+  // This method is used to retrieve the species prices for a given simulation.
   rpc GetSpeciesPrices(GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
+  // This method is used to update the species prices for a given simulation.
   rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
+  // This method is used to retrieve the sales summaries for a given simulation and time period.
   rpc GetSales(GetSalesRequest) returns (GetSalesResponse);
+  // This method is used to update the sales summaries for a given simulation and time period.
   rpc UpdateSales(UpdateSalesRequest) returns (UpdateSalesResponse);
 }
