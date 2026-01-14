@@ -12,7 +12,8 @@ message BiomassGrid {
   repeated BiomassCell biomass_cells = 2;
 }
 
-message BiomassCell {// center of the cell
+// center of the cell
+message BiomassCell {
   double longitude = 1;
   double latitude = 2;
   double biomass = 3;

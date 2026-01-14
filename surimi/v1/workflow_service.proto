@@ -1,12 +1,14 @@
 syntax = "proto3";
 
 package surimi.v1;
+// Workflow service for managing simulation lifecycle
 
 import "surimi/v1/simulation.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
+// Request messages for WorkflowService
 message InitialiseRequest {
   string simulation_id = 1;
   Simulation simulation = 2;
@@ -43,8 +45,19 @@ message SimulateStepResponse {
 
 // The workflow service definition. All models should implement this interface
 service WorkflowService {
+  // Initialise a new simulation
+  // The InitialiseRequest message contains a 'contract' of the simulation, describing the context in which the simulation will run.
+  // It will contain, for example, a list of all possible SpeciesCodes, PortCodes, GearCodes, etc. that the simulation may use.
+  // The model should inspect the contract and check if it can honor the contract. So if the model understands the speciesCodes, PortCodes, GearCodes, etc. listed in the contract.
+  // And if the model uses the same units, coordinate reference system, time step size, etc. as described in the contract.
+  // And that the model won't send back data that is not part of the contract.
+  // The InitialiseRequest message also contains the start date of the simulation, the maximum end date of the simulation and the step size.
+  // If the model cannot honor the contract, it should throw a GrpcException, containing a descriptive error message.
   rpc Initialise(InitialiseRequest) returns (InitialiseResponse);
+  // This call requests the model to simulate a single time step. The model can perform all calculations.
   rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
+  // Finalise the simulation. The model can create a report, free resources, etc.
   rpc Finalise(FinaliseRequest) returns (FinaliseResponse);
+  // Cancel the simulation. Should only be handled during the "running" state of the simulation.
   rpc Cancel(CancelRequest) returns (CancelResponse);
 }
