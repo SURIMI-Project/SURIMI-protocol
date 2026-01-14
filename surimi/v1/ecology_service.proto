@@ -25,7 +25,10 @@ message UpdateBiomassResponse {
   string simulation_id = 1;
 }
 
+// The ecology service definition contaisns methods that have to do with ecology. It contaisns methods to get and update biomass information
 service EcologyService {
+  // Get the biomass information for a simulation
   rpc GetBiomass(GetBiomassRequest) returns (GetBiomassResponse);
+  // Update the biomass information
   rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
 }

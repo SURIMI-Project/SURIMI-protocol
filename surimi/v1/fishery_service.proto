@@ -28,7 +28,10 @@ message UpdateCatchDispositionResponse {
   string simulation_id = 1;
 }
 
+// The fishery service definition contains methods that have to do with fisheries. It contains methods to get And update catch dispositions. I.E the catches and discards.
 service FisheryService {
+  // This method is used to retrieve the catches and discards for a given simulation and time period.
   rpc GetCatchDisposition(GetCatchDispositionRequest) returns (GetCatchDispositionResponse);
+  // This method is used to update the catches and discards for a given simulation.
   rpc UpdateCatchDisposition(UpdateCatchDispositionRequest) returns (UpdateCatchDispositionResponse);
 }
