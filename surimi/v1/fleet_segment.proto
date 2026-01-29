@@ -14,4 +14,6 @@ message FleetSegment {
   string scale = 3;
   // 3 letter country code (ISO 3166-1 alpha-3)
   string country_code = 4;
+  // the model that simulates this fleet segment. For example "EwE" or "POSEIDON"
+  string model = 5;
 }
