@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "google/protobuf/timestamp.proto";
 import "surimi/v1/biomass.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -9,16 +10,22 @@ option java_package = "eu.project.surimi";
 
 message GetBiomassRequest {
   string simulation_id = 1;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
 }
 
 message GetBiomassResponse {
   string simulation_id = 1;
-  BiomassSummary biomass_summary = 2;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
+  BiomassSummary biomass_summary = 4;
 }
 
 message UpdateBiomassRequest {
   string simulation_id = 1;
-  BiomassSummary biomass_summary = 2;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
+  BiomassSummary biomass_summary = 4;
 }
 
 message UpdateBiomassResponse {
