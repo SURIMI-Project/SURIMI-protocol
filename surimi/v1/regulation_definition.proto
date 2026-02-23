@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/species.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Describes the Target Fishing Mortality policy
+message TargetFishingMortality {
+  // The species that this is about
+  Species species = 1;
+  // the lower limit of the biomass. When the biomass is below this, no fishing is allowed
+  double biomass_limit = 2;
+  // the upper limit of the biomass. When the biomass is more then this, fishing is unrestricted
+  double biomass_base = 3;
+  // the maximum allowed catch
+  double f_max = 4;
+}
+
+// Describes the Allowed time policy
+message AllowedTimeDefinition {
+  Species species = 1;
+  // TODO. Describe the time that this Species can be caught
+}
+
+// This message contains all regulation definitions
+message RegulationDefinitionsSummary {
+  repeated TargetFishingMortality total_allowable_catches = 1;
+  repeated AllowedTimeDefinition allowed_timer = 2;
+}

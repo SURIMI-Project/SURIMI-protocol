@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+import "surimi/v1/regulation.proto";
+import "surimi/v1/regulation_definition.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message GetRegulationsRequest {
+  string simulation_id = 1;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
+}
+
+message GetRegulationsResponse {
+  string simulation_id = 1;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
+  RegulationsSummary regulations_summary = 4;
+}
+
+message UpdateRegulationsRequest {
+  string simulation_id = 1;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
+  RegulationsSummary regulations_summary = 4;
+}
+
+message UpdateRegulationsResponse {
+  string simulation_id = 1;
+  google.protobuf.Timestamp start_date_time = 2;
+  google.protobuf.Timestamp end_date_time = 3;
+}
+
+// This message is sent to the Fishery Authority. It contains a set of regulation definitions that are created to do simulations with.
+message CreateRegulationsRequest {
+  string regulation_definitions_id = 1;
+  RegulationDefinitionsSummary regulations_summary = 4;
+}
+
+message CreateRegulationsResponse {
+  string regulation_definitions_id = 1;
+}
+
+// The fishery Authority service definition contains methods that have to do with fishing regulations and management. It contains methods to get the Total Allowable Catch.
+service FisheryAuthorityService {
+  // This method is used to retrieve all Harvest Control Regulations for the specified period.
+  rpc GetRegulations(GetRegulationsRequest) returns (GetRegulationsResponse);
+  // This method is used to update the Harvest Control Regulations for the specified period.
+  rpc UpdateRegulations(UpdateRegulationsRequest) returns (UpdateRegulationsResponse);
+  // This method is used to create the Harvest Control Regulations.
+  rpc CreateRegulations(CreateRegulationsRequest) returns (CreateRegulationsResponse);
+}
