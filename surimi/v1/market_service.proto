@@ -20,7 +20,9 @@ message GetSpeciesPricesResponse {
 
 message UpdateSpeciesPricesRequest {
   string simulation_id = 1;
-  repeated SpeciesPrice prices = 2;
+  // When filled, this simulation is part on an experiment consisting of many simulations. The Controller should fill the experiment_id
+  string experiment_id = 2;
+  repeated SpeciesPrice prices = 3;
 }
 
 message UpdateSpeciesPricesResponse {
@@ -42,9 +44,11 @@ message GetSalesResponse {
 
 message UpdateSalesRequest {
   string simulation_id = 1;
-  google.protobuf.Timestamp start_date_time = 2;
-  google.protobuf.Timestamp end_date_time = 3;
-  repeated SalesSummary sales_summaries = 4;
+  // When filled, this simulation is part on an experiment consisting of many simulations. The Controller should fill the experiment_id
+  string experiment_id = 2;
+  google.protobuf.Timestamp start_date_time = 3;
+  google.protobuf.Timestamp end_date_time = 4;
+  repeated SalesSummary sales_summaries = 5;
 }
 
 message UpdateSalesResponse {
