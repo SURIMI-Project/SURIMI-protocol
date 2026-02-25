@@ -21,6 +21,7 @@ message GetCatchDispositionResponse {
   CatchDispositionSummary catch_disposition_summary = 4;
 }
 
+// This message contains the catch and discard information for a given simulation and time period.
 message UpdateCatchDispositionRequest {
   string simulation_id = 1;
   // When filled, this simulation is part on an experiment consisting of many simulations. The Controller should fill the experiment_id
@@ -30,6 +31,7 @@ message UpdateCatchDispositionRequest {
   CatchDispositionSummary catch_disposition_summary = 5;
 }
 
+// The response message of UpdateCatchDispositionRequest
 message UpdateCatchDispositionResponse {
   string simulation_id = 1;
   google.protobuf.Timestamp start_date_time = 2;
