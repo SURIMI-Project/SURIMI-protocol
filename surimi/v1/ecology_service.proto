@@ -2,52 +2,24 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "google/protobuf/timestamp.proto";
-import "surimi/v1/biomass.proto";
-
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-// Message that is sent to request the total biomass (devided by species) at the moment of date_time
-message GetBiomassRequest {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
-  // The moment the biomass is requested for
-  google.protobuf.Timestamp date_time = 2;
+message CreateExperimentRequest {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+  // The list of simulation_ids that are part of this experiment
+  repeated string simulation_ids = 2;
 }
 
-// This message returns the biomass (devided by species) at the moment of date_time
-message GetBiomassResponse {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
-  // The moment that this biomass is calculated for
-  google.protobuf.Timestamp date_time = 2;
-  // The biomass summary
-  BiomassSummary biomass_summary = 3;
+// The response message of CreateExperimentRequest
+message CreateExperimentResponse {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
 }
 
-// This is an output message, containing the Biomass (devided by species) at the moment of date_time
-message UpdateBiomassRequest {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
-  // When filled, this simulation is part on an experiment consisting of many simulations. The Controller should fill the experiment_id
-  string experiment_id = 2;
-  // The moment that this biomass is calculated for
-  google.protobuf.Timestamp date_time = 3;
-  // The biomass summary
-  BiomassSummary biomass_summary = 4;
-}
-
-// The response message of UpdateBiomassRequest
-message UpdateBiomassResponse {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
-}
-
-// The ecology service definition contaisns methods that have to do with ecology. It contaisns methods to get and update biomass information
-service EcologyService {
-  // Get the biomass information for a simulation
-  rpc GetBiomass(GetBiomassRequest) returns (GetBiomassResponse);
-  // Update the biomass information
-  rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
+// The aggregator service
+service AggregatorService {
+  // Create an experiment consisting of a list of simulations
+  rpc CreateExperiment(CreateExperimentRequest) returns (CreateExperimentResponse);
 }
