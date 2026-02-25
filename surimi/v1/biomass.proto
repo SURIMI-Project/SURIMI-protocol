@@ -19,6 +19,8 @@ message BiomassCell {
   double biomass = 3;
 }
 
+// The summary of the biomass, containing a list of BiomassGrids.
+// This is the object that the controller can copy from the server to its clients
 message BiomassSummary {
   repeated BiomassGrid biomass_grids = 1;
 }

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/environment_variables.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message EnvironmentVariablesGrid {
+  Species species = 1;
+  repeated EnvironmentVariablesCell environment_variables_cells = 2;
+}
+
+// The environmental variables in this cell. The variable names come from https://cfconventions.org/Data/cf-standard-names/current/build/cf-standard-name-table.html
+message EnvironmentVariablesCell {
+  // The longitude of the cell, in degree_east
+  double longitude = 1;
+  // The latitude of the cell, in degree_north
+  double latitude = 2;
+  // The sea surface temperature in Kelvin
+  double sea_surface_temperature = 3;
+  // The sea water temperature at the sea floor in Kelvin
+  double sea_water_temperature_at_sea_floor = 4;
+  // The mole concentration of oxygen in sea water, in 1e-3 (parts per thousand)
+  double sea_water_salinity = 5;
+  // The mole concentration of phytoplankton expressed as carbon in sea water, in mol/m3
+  double mole_concentration_of_phytoplankton_expressed_as_carbon_in_sea_water = 6;
+}
+
+// The summary of the environment variables, containing a list of EnvironmentVariablesGrids.
+// This is the object that the controller can copy from the server to its clients
+message EnvironmentVariablesSummary {
+  repeated EnvironmentVariablesGrid environment_variables_grids = 1;
+}

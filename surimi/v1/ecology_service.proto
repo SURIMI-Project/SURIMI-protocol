@@ -23,7 +23,7 @@ message GetBiomassResponse {
   // The moment that this biomass is calculated for
   google.protobuf.Timestamp date_time = 2;
   // The biomass summary
-  BiomassSummary biomass_summary = 4;
+  BiomassSummary biomass_summary = 3;
 }
 
 // This is an output message, containing the Biomass (devided by species) at the moment of date_time
