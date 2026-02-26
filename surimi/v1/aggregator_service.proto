@@ -5,21 +5,21 @@ package surimi.v1;
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message CreateExperimentRequest {
+message RegisterExperimentRequest {
   // This experiment_id identifies the experiment this request belongs to
   string experiment_id = 1;
   // The list of simulation_ids that are part of this experiment
   repeated string simulation_ids = 2;
 }
 
-// The response message of CreateExperimentRequest
-message CreateExperimentResponse {
+// The response message of RegisterExperimentRequest
+message RegisterExperimentResponse {
   // This experiment_id identifies the experiment this request belongs to
   string experiment_id = 1;
 }
 
 // The aggregator service
 service AggregatorService {
-  // Create an experiment consisting of a list of simulations
-  rpc CreateExperiment(CreateExperimentRequest) returns (CreateExperimentResponse);
+  // Registers the list of simulations belonging to an experiment
+  rpc RegisterExperiment(RegisterExperimentRequest) returns (RegisterExperimentResponse);
 }
