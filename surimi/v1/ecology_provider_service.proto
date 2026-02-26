@@ -27,7 +27,7 @@ message GetBiomassResponse {
 }
 
 // The ecology provider service has to be implemented by services that provide biomass information
-service EcologyService {
+service EcologyProviderService {
   // Get the biomass information for a simulation
   rpc GetBiomass(GetBiomassRequest) returns (GetBiomassResponse);
 }
