@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+import "surimi/v1/biomass.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// This is an output message, containing the Biomass (devided by species) at the moment of date_time
+message UpdateBiomassRequest {
+  // This simulation_id identifies the simulation this request belongs to
+  string simulation_id = 1;
+  // The moment that this biomass is calculated for
+  google.protobuf.Timestamp date_time = 2;
+  // The biomass summary
+  BiomassSummary biomass_summary = 3;
+}
+
+// The response message of UpdateBiomassRequest
+message UpdateBiomassResponse {
+  // This simulation_id identifies the simulation this request belongs to
+  string simulation_id = 1;
+}
+
+// The ecology consumer service has to be implemented by services that consume Biomass information
+service EcologyConsumerService {
+  // Update the biomass information
+  rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
+}

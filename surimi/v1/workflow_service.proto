@@ -10,12 +10,19 @@ option java_package = "eu.project.surimi";
 
 // Request messages for WorkflowService
 message InitialiseRequest {
+  // this is the ID of 1 simulation.
   string simulation_id = 1;
+  // the Simulation contract.
   Simulation simulation = 2;
+  // The name of the scenario that is used.
   string scenario_id = 3;
+  // the id of the set of regulation definitions that are part of this simulation
+  string regulation_definitions_id = 4;
 }
 
+// The Response message
 message InitialiseResponse {
+  // this is the ID of 1 simulation.
   string simulation_id = 1;
 }
 

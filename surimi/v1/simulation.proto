@@ -10,6 +10,7 @@ import "surimi/v1/standards.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
+// The contract of the SURIMI simulation. This configuration can not be changed by users, only by developers. On 'Initialise' the contract is sent to every component. The component should honour to the contract.
 message Simulation {
   // model configuration (Area, fleet, species, etc.)
   string case_study_name = 1;
@@ -19,7 +20,10 @@ message Simulation {
   google.protobuf.Timestamp maximum_end_date_time = 3;
   // time step size (e.g . 1 day, 1 month, 1 year) in ISO 8601 duration format
   string time_step = 4;
+  // geography contains the mapping context of the contract. What region is used, the resolution etc.
   Geography geography = 5;
+  // the standards determin the vocabularies that are used.
   Standards standards = 6;
+  // Item contains a number of lists of the specific Species, markets, ports, fleets, gears etc. that are used.
   Items items = 7;
 }

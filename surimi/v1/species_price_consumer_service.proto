@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/species_price.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// this message contains the prices of a list of species
+message UpdateSpeciesPricesRequest {
+  string simulation_id = 1;
+  repeated SpeciesPrice prices = 2;
+}
+
+// This is the answer to the UpdateSpeciesPricesRequest
+message UpdateSpeciesPricesResponse {
+  string simulation_id = 1;
+}
+
+// The species price consumer service must be implemented by every service that consumes species prices
+service SpeciesPriceConsumerService {
+  // This method is used to update the species prices for a given simulation.
+  rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
+}
