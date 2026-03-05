@@ -8,7 +8,7 @@ import "surimi/v1/environment_variables.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-// Message that is sent to request the Environment Variables  at the moment of date_time
+// Message that is sent to request the Environment Variables at a specific moment in time
 message GetEnvironmentVariablesRequest {
   // This simulation_id identifies the simulation this request belongs to
   string simulation_id = 1;
@@ -20,7 +20,7 @@ message GetEnvironmentVariablesRequest {
 message GetEnvironmentVariablesResponse {
   // This simulation_id identifies the simulation this request belongs to
   string simulation_id = 1;
-  // The moment that these Environment Variables appply to
+  // The moment that these Environment Variables apply to
   google.protobuf.Timestamp date_time = 2;
   // The EnvironmentVariables summary
   EnvironmentVariablesSummary environment_variables_summary = 3;
