@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/fleet_segment.proto";
 import "surimi/v1/species.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -10,7 +11,8 @@ option java_package = "eu.project.surimi";
 // Describes the Species, and the total allowable catch for this timestep
 message TotalAllowableCatch {
   Species species = 1;
-  double catch = 2;
+  FleetSegment fleet_segment = 2;
+  double catch = 3;
 }
 
 message AllowedTime {
