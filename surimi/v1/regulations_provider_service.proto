@@ -34,7 +34,7 @@ message UpdateFishingActivityResponse {
   string simulation_id = 1;
 }
 
-// This message is sent to the Fishery Authority. It contains a set of regulation definitions that are created to do simulations with.
+// This message is sent to the Regulations Provider. It contains a set of regulation definitions that are created to do simulations with.
 message CreateRegulationsRequest {
   string regulation_definitions_id = 1;
   RegulationDefinitionsSummary regulations_summary = 4;
@@ -45,7 +45,7 @@ message CreateRegulationsResponse {
 }
 
 // The regulations provider service has to be implemented by services that provide regulations, such as the fishery authority. In turn, it receives fishing activity to gather feedback of the regulations
-service FisheryAuthorityService {
+service RegulationsProviderService {
   // This method is used to retrieve all Harvest Control Regulations for the specified period.
   rpc GetRegulations(GetRegulationsRequest) returns (GetRegulationsResponse);
   // This method has to be implemented to receive the fishing activity needed to calculate the new regulations
