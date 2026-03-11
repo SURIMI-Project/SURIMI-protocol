@@ -27,6 +27,6 @@ message AllowedTimeDefinition {
 
 // This message contains all regulation definitions
 message RegulationDefinitionsSummary {
-  repeated TargetFishingMortality total_allowable_catches = 1;
+  repeated TargetFishingMortality target_fishing_mortality = 1;
   repeated AllowedTimeDefinition allowed_timer = 2;
 }
