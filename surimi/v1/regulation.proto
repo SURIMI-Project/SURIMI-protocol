@@ -10,8 +10,11 @@ option java_package = "eu.project.surimi";
 
 // Describes the Species, and the total allowable catch for this timestep
 message TotalAllowableCatch {
+  // The species that this is about
   Species species = 1;
+  // The fleet segment that this is about
   FleetSegment fleet_segment = 2;
+  // The total allowable catch for this species and fleet segment
   double catch = 3;
 }
 
