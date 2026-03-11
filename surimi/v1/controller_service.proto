@@ -19,7 +19,7 @@ message InitialiseExperimentRequest {
   // This is the number of simulations that is run as part of this experiment.
   int32 number_of_runs = 4;
   // A set of regulation definitions that are used in the experiments.
-  RegulationDefinitionsSummary regulations_summary = 5;
+  RegulationDefinitionsSummary regulations_definitions_summary = 5;
 }
 
 // The answer to InitialiseExperimentRequest.
