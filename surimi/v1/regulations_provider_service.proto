@@ -37,7 +37,7 @@ message UpdateFishingActivityResponse {
 // This message is sent to the Regulations Provider. It contains a set of regulation definitions that are created to do the simulation with.
 message CreateRegulationsRequest {
   string simulation_id = 1;
-  RegulationDefinitionsSummary regulations_summary = 4;
+  RegulationDefinitionsSummary regulations_summary = 2;
 }
 
 message CreateRegulationsResponse {
