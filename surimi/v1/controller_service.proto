@@ -4,6 +4,7 @@ package surimi.v1;
 
 import "google/protobuf/timestamp.proto";
 import "surimi/v1/regulation_definition.proto";
+import "surimi/v1/simulation.proto";
 import "surimi/v1/simulation_status.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -52,6 +53,13 @@ message GetAllSimulationStatusesResponse {
   repeated SimulationStatus simulation_statuses = 1;
 }
 
+message GetSimulationContractRequest {}
+
+message GetSimulationContractResponse {
+  // the Simulation contract.
+  Simulation simulation = 1;
+}
+
 // The ControllerService is called to send commands to the simulation controller. For example by a GUI.
 // It's also used to check the status of all simulations, so the GUI can display them.
 service ControllerService {
@@ -63,4 +71,7 @@ service ControllerService {
   rpc CancelExperiment(CancelExperimentRequest) returns (CancelExperimentResponse);
   // Gets the statuses of all simulations. This method can be periodically called by a GUI to update the list of simulations and their statuses.
   rpc GetAllSimulationStatuses(GetAllSimulationStatusesRequest) returns (GetAllSimulationStatusesResponse);
+  // Gets the simulation contract. This method can be used by, for example, the GUI to get the simulation contract, so it can check which species codes, port codes, gear codes, etc. are used in the simulation.
+  // This method reads the yaml file and returns the simulation contract.
+  rpc GetSimulationContract(GetSimulationContractRequest) returns (GetSimulationContractResponse);
 }
