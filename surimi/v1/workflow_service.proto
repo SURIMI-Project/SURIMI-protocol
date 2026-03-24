@@ -16,10 +16,8 @@ message InitialiseRequest {
   Simulation simulation = 2;
   // The name of the scenario that is used.
   string scenario_id = 3;
-  // the id of the set of regulation definitions that are part of this simulation
-  string regulation_definitions_id = 4;
   // The end date time of the simulation. This may be earlier that the maximum end date time that is specified in the Simulation contract.
-  google.protobuf.Timestamp end_date_time = 5;
+  google.protobuf.Timestamp end_date_time = 4;
 }
 
 // The Response message
