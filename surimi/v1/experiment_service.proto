@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/simulation.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message InitialiseExperimentRequest {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+  // The list of simulation_ids that are part of this experiment
+  repeated string simulation_ids = 2;
+  // the Simulation contract.
+  Simulation simulation = 3;
+}
+
+// The response message of InitialiseExperimentRequest
+message InitialiseExperimentResponse {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+}
+
+// The request message of FinaliseExperimentRequest
+message FinaliseExperimentRequest {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+}
+
+// The response message of FinaliseExperimentRequest
+message FinaliseExperimentResponse {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+}
+
+// The experiment service
+service ExperimentService {
+  // Initialises the list of simulations belonging to an experiment
+  rpc InitialiseExperiment(InitialiseExperimentRequest) returns (InitialiseExperimentResponse);
+  // Finalises the experiment, which means that all the results of the simulations will be aggregated and stored in a file
+  rpc FinaliseExperiment(FinaliseExperimentRequest) returns (FinaliseExperimentResponse);
+}
