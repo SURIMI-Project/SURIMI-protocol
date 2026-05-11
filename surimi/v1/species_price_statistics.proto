@@ -2,22 +2,23 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/double_statistics.proto";
 import "surimi/v1/species.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message SpeciesPrice {
+message SpeciesPriceStatistics {
   Species species = 1;
   string gear_code = 2;
   // for the western med case, 2 letter country code (ISO 3166-1 alpha-2) plus 3 letter port code according to https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
   string market_code = 3;
-  double price = 4;
+  DoubleStatistics price = 4;
   // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
   string currency = 5;
 }
 
-message SpeciesPriceSummary {
-  // The species price entries for this time period
-  repeated SpeciesPrice species_prices = 1;
+message SpeciesPriceStatisticsSummary {
+  // The species price statistics for this time period
+  repeated SpeciesPriceStatistics species_prices_statistics = 1;
 }

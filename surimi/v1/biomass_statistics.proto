@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/double_statistics.proto";
+import "surimi/v1/species.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message BiomassGridStatistics {
+  Species species = 1;
+  repeated BiomassCellStatistics biomass_cells_statistics = 2;
+}
+
+// center of the cell
+message BiomassCellStatistics {
+  double longitude = 1;
+  double latitude = 2;
+  DoubleStatistics biomass = 3;
+}
+
+// The summary of the biomass, containing a list of BiomassGrids.
+// This is the object that the controller can copy from the server to its clients
+message BiomassStatisticsSummary {
+  repeated BiomassGridStatistics biomass_grids_statistics = 1;
+}

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message DoubleStatistics {
+  double mean = 1;
+  double p05 = 2; // 5th percentile
+  double p95 = 3; // 95th percentile
+}
