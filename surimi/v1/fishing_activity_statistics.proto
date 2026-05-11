@@ -16,7 +16,7 @@ message FishingActivityStatistics {
   DoubleStatistics fishing_activity_ratio = 2;
 }
 
-// This message contains all regulations that apply to this timestep
+// This message contains all fishing activity statistics that apply to this timestep
 message FishingActivityStatisticsSummary {
   repeated FishingActivityStatistics fishing_activities_statistics = 1;
 }
