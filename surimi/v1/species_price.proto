@@ -18,6 +18,6 @@ message SpeciesPrice {
 }
 
 message SpeciesPriceSummary {
-  // The market sales summaries for this time period
+  // The species price entries for this time period
   repeated SpeciesPrice species_prices = 1;
 }
