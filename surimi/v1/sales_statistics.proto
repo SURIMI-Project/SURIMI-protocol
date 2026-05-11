@@ -12,7 +12,7 @@ option java_package = "eu.project.surimi";
 message SaleStatistics {
   Species species = 1;
   FleetSegment fleet_segment = 2;
-  double quantity = 3;
+  DoubleStatistics quantity = 3;
   DoubleStatistics value = 4;
 }
 
