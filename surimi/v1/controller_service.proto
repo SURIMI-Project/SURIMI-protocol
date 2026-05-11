@@ -28,11 +28,11 @@ message SubmitExperimentResponse {
   string experiment_id = 1;
 }
 
-message CancelExperimentRequest {
+message RemoveExperimentRequest {
   string experiment_id = 1;
 }
 
-message CancelExperimentResponse {
+message RemoveExperimentResponse {
   string experiment_id = 1;
 }
 
@@ -57,8 +57,8 @@ message GetSimulationContractResponse {
 service ControllerService {
   // Submits a new experiment with the given scenario_id, an experiment_id and the requested end date and time.
   rpc SubmitExperiment(SubmitExperimentRequest) returns (SubmitExperimentResponse);
-  // Cancels the simulation with the given simulation_id.
-  rpc CancelExperiment(CancelExperimentRequest) returns (CancelExperimentResponse);
+  // Removes the experiment with the given experiment_id.
+  rpc RemoveExperiment(RemoveExperimentRequest) returns (RemoveExperimentResponse);
   // Gets the statuses of all simulations. This method can be periodically called by a GUI to update the list of simulations and their statuses.
   rpc GetAllSimulationStatuses(GetAllSimulationStatusesRequest) returns (GetAllSimulationStatusesResponse);
   // Gets the simulation contract. This method can be used by, for example, the GUI to get the simulation contract, so it can check which species codes, port codes, gear codes, etc. are used in the simulation.

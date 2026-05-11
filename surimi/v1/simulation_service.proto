@@ -9,7 +9,7 @@ option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 // Request messages for SimulationService
-message InitialiseRequest {
+message InitialiseSimulationRequest {
   // this is the ID of 1 simulation.
   string simulation_id = 1;
   // the Simulation contract.
@@ -21,24 +21,24 @@ message InitialiseRequest {
 }
 
 // The Response message
-message InitialiseResponse {
+message InitialiseSimulationResponse {
   // this is the ID of 1 simulation.
   string simulation_id = 1;
 }
 
-message FinaliseRequest {
+message FinaliseSimulationRequest {
   string simulation_id = 1;
 }
 
-message FinaliseResponse {
+message FinaliseSimulationResponse {
   string simulation_id = 1;
 }
 
-message CancelRequest {
+message CancelSimulationRequest {
   string simulation_id = 1;
 }
 
-message CancelResponse {
+message CancelSimulationResponse {
   string simulation_id = 1;
 }
 
@@ -72,13 +72,13 @@ service SimulationService {
   // If the model cannot honor the contract, it should throw a GrpcException, containing a descriptive error message.
   //
   // The controller creates the InitialiseRequest.Simulation object by reading a yaml configuration file that describes the scenario to be simulated.
-  rpc Initialise(InitialiseRequest) returns (InitialiseResponse);
+  rpc InitialiseSimulation(InitialiseSimulationRequest) returns (InitialiseSimulationResponse);
   // This call requests the model to simulate a single time step. The model can perform all calculations.
   rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
   // Finalise the simulation. The model can create a report, free resources, etc.
-  rpc Finalise(FinaliseRequest) returns (FinaliseResponse);
+  rpc FinaliseSimulation(FinaliseSimulationRequest) returns (FinaliseSimulationResponse);
   // Cancel the simulation. Should only be handled during the "running" state of the simulation.
-  rpc Cancel(CancelRequest) returns (CancelResponse);
+  rpc CancelSimulation(CancelSimulationRequest) returns (CancelSimulationResponse);
   // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
   rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
 }
