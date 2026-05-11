@@ -24,7 +24,7 @@ message GetSpeciesPricesResponse {
   // The moment that these Species prices apply to
   google.protobuf.Timestamp date_time = 2;
   // The Species prices summary
-  repeated SpeciesPrice prices = 3;
+  SpeciesPriceSummary species_price_summary = 3;
 }
 
 // This Message is sent to update the sales summaries for a given simulation and time period. The sales are used to calculate the Species prices for the next time period.

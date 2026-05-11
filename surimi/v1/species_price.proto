@@ -16,3 +16,8 @@ message SpeciesPrice {
   // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
   string currency = 5;
 }
+
+message SpeciesPriceSummary {
+  // The market sales summaries for this time period
+  repeated SpeciesPrice species_prices = 1;
+}

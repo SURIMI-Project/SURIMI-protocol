@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/double_statistics.proto";
+import "surimi/v1/fleet_segment.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Describes the Fishing Activity
+message FishingActivityStatistics {
+  // the fleet segment that this fishing activity is about
+  FleetSegment fleet_segment = 1;
+  // the ratio of fishing activity for this fleet segment. 0 means no fishing, 1 means full fishing activity
+  DoubleStatistics fishing_activity_ratio = 2;
+}
+
+// This message contains all regulations that apply to this timestep
+message FishingActivityStatisticsSummary {
+  repeated FishingActivityStatistics fishing_activities_statistics = 1;
+}

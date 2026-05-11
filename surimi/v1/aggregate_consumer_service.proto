@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+import "surimi/v1/biomass_statistics.proto";
+import "surimi/v1/disposition_statistics.proto";
+import "surimi/v1/fishing_activity_statistics.proto";
+import "surimi/v1/sales_statistics.proto";
+import "surimi/v1/species_price_statistics.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// This message contains the catch and discard information for a given simulation and time period.
+message UpdateAggregatedSimulationDataRequest {
+  string simulation_id = 1;
+  // The moment that these aggregated simulation data apply to.
+  google.protobuf.Timestamp start_date_time = 2;
+  CatchDispositionStatisticsSummary catch_disposition_statistics_summary = 3;
+  SpeciesPriceStatisticsSummary species_price_statistics_summary = 4;
+  // The biomass summary
+  BiomassStatisticsSummary biomass_statistics_summary = 5;
+  // The sales summaries to be updated
+  SalesStatisticsSummary sales_statistics_summary = 6;
+  FishingActivityStatisticsSummary fishing_activity_statistics_summary = 7;
+}
+
+// The response message of UpdateAggregatedSimulationDataRequest
+message UpdateAggregatedSimulationDataResponse {
+  string simulation_id = 1;
+  // Indicates whether the experiment is complete. If the experiment is complete, the aggregate consumer service will not receive any more UpdateAggregatedSimulationDataRequest messages for this experiment and start_date_time.
+  // It has calculated the aggregated simulation data of the start_date_time. And deleted the original simulation data of the start_date_time.
+  bool experiment_complete = 2;
+}
+
+message GetAggregatedSimulationDataRequest {
+  string experiment_id = 1;
+  // The moment that these aggregated simulation data apply to.
+  google.protobuf.Timestamp start_date_time = 2;
+}
+
+message GetAggregatedSimulationDataResponse {
+  string experiment_id = 1;
+  // The moment that these aggregated simulation data apply to.
+  google.protobuf.Timestamp start_date_time = 2;
+  CatchDispositionStatisticsSummary catch_disposition_statistics_summary = 3;
+  SpeciesPriceStatisticsSummary species_price_statistics_summary = 4;
+  // The biomass summary
+  BiomassStatisticsSummary biomass_statistics_summary = 5;
+  // The sales summaries to be updated
+  SalesStatisticsSummary sales_statistics_summary = 6;
+  FishingActivityStatisticsSummary fishing_activity_statistics_summary = 7;
+}
+
+// The aggregate consumer service has to be implemented by a service that aggregates simulation data.
+service AggregateConsumerService {
+  rpc UpdateAggregatedSimulationData(UpdateAggregatedSimulationDataRequest) returns (UpdateAggregatedSimulationDataResponse);
+  rpc GetAggregatedSimulationData(GetAggregatedSimulationDataRequest) returns (GetAggregatedSimulationDataResponse);
+}
