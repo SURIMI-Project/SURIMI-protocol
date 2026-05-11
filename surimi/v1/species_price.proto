@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "google/protobuf/timestamp.proto";
 import "surimi/v1/species.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -16,5 +15,4 @@ message SpeciesPrice {
   double price = 4;
   // 3 letter Currency Code as described in ISO 4217 . GBP, EUR, USD
   string currency = 5;
-  google.protobuf.Timestamp timestamp = 6;
 }
