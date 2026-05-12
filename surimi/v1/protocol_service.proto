@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// This message is used to request the version of the protobuf files. It doesn't contain any fields, as it is just a request to get the version.
+message GetProtocolVersionRequest {}
+
+// This message is used to respond to the GetProtocolVersionRequest. It contains the protocol_version of the SDK, which is a string that describes the version of the protobuf files. This can be used by the model to check if it is compatible with the controller.
+message GetProtocolVersionResponse {
+  string protocol_version = 1;
+}
+
+// The ProtocolService is used to get the version of the protobuf files. This can be used by the model to check if it is compatible with the controller. If the model is not compatible with the controller, it can log a warning or error message, or even refuse to start.
+service ProtocolService {
+  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
+  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
+}
