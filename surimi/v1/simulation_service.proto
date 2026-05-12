@@ -52,14 +52,6 @@ message SimulateStepResponse {
   string simulation_id = 1;
 }
 
-// This message is used to request the version of the protobuf files. It doesn't contain any fields, as it is just a request to get the version.
-message GetProtocolVersionRequest {}
-
-// This message is used to respond to the GetProtocolVersionRequest. It contains the protocol_version of the SDK, which is a string that describes the version of the protobuf files. This can be used by the model to check if it is compatible with the controller.
-message GetProtocolVersionResponse {
-  string protocol_version = 1;
-}
-
 // The simulation service definition. It controlls initialising, starting, canceling And finalising a simulation.  All models should implement this interface.
 service SimulationService {
   // Initialise a new simulation
@@ -79,6 +71,4 @@ service SimulationService {
   rpc FinaliseSimulation(FinaliseSimulationRequest) returns (FinaliseSimulationResponse);
   // Cancel the simulation. Should only be handled during the "running" state of the simulation.
   rpc CancelSimulation(CancelSimulationRequest) returns (CancelSimulationResponse);
-  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
-  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
 }
