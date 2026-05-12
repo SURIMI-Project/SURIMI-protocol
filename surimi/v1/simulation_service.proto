@@ -15,7 +15,7 @@ message InitialiseSimulationRequest {
   // the Simulation contract.
   Simulation simulation = 2;
   // The name of the scenario that is used.
-  string scenario_id = 3;
+  string scenario_name = 3;
   // The end date time of the simulation. This may be earlier that the maximum end date time that is specified in the Simulation contract.
   google.protobuf.Timestamp end_date_time = 4;
 }
