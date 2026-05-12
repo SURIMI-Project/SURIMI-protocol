@@ -24,6 +24,6 @@ message MarketSalesStatistics {
 }
 
 message SalesStatisticsSummary {
-  // The market sales summaries for this time period
+  // The market sales summary for this time period
   repeated MarketSalesStatistics market_sales_statistics = 1;
 }

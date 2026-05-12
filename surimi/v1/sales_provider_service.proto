@@ -23,6 +23,6 @@ message GetSalesResponse {
 
 // The Sales Provider Service must be implemented by every service that provides sales information
 service SalesProviderService {
-  // This method is used to retrieve the sales summaries for a given simulation and time period.
+  // This method is used to retrieve the sales summary for a given simulation and time period.
   rpc GetSales(GetSalesRequest) returns (GetSalesResponse);
 }
