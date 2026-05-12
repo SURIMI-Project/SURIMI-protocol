@@ -23,6 +23,6 @@ message MarketSales {
 }
 
 message SalesSummary {
-  // The market sales summaries for this time period
+  // The market sales summary for this time period
   repeated MarketSales market_sales = 1;
 }
