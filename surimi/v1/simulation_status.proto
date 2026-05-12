@@ -15,7 +15,7 @@ message SimulationStatus {
   // the experiment_id that the simulation is part of
   string experiment_id = 2;
   // current scenario that is simulated
-  string scenario_id = 3;
+  string scenario_name = 3;
   // start date and time of the simulation
   google.protobuf.Timestamp start_date_time = 4;
   // end date and time of the simulation
