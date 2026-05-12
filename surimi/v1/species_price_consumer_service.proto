@@ -11,9 +11,9 @@ option java_package = "eu.project.surimi";
 // this message contains the prices of a list of species
 message UpdateSpeciesPricesRequest {
   string simulation_id = 1;
-  repeated SpeciesPrice prices = 2;
   // The moment that this is the price for each species
-  google.protobuf.Timestamp date_time = 3;
+  google.protobuf.Timestamp date_time = 2;
+  SpeciesPriceSummary species_price_summary = 3;
 }
 
 // This is the answer to the UpdateSpeciesPricesRequest
