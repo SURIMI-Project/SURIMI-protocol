@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message CancelSimulationRequest {
+  string simulation_id = 1;
+}
+
+message CancelSimulationResponse {
+  string simulation_id = 1;
+}

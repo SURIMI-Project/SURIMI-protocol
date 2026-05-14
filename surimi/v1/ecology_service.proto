@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/cancel_simulation.proto";
+import "surimi/v1/finalise_simulation.proto";
+import "surimi/v1/get_biomass.proto";
+import "surimi/v1/get_catch_disposition.proto";
+import "surimi/v1/get_fishing_activity.proto";
+import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/get_sales.proto";
+import "surimi/v1/initialise_simulation.proto";
+import "surimi/v1/simulate_step.proto";
+import "surimi/v1/update_catch_disposition.proto";
+import "surimi/v1/update_environment_variables.proto";
+import "surimi/v1/update_regulations.proto";
+import "surimi/v1/update_species_prices.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+service EcologyService {
+  // Initialise a new simulation
+  // The InitialiseRequest message contains a 'contract' of the simulation, describing the context in which the simulation will run.
+  // It will contain, for example, a list of all possible SpeciesCodes, PortCodes, GearCodes, etc. that the simulation may use.
+  // The model should inspect the contract and check if it can honor the contract. So if the model understands the speciesCodes, PortCodes, GearCodes, etc. listed in the contract.
+  // And if the model uses the same units, coordinate reference system, time step size, etc. as described in the contract.
+  // And that the model won't send back data that is not part of the contract.
+  // The InitialiseRequest message also contains the start date of the simulation, the maximum end date of the simulation and the step size.
+  // If the model cannot honor the contract, it should throw a GrpcException, containing a descriptive error message.
+  //
+  // The controller creates the InitialiseRequest.Simulation object by reading a yaml configuration file that describes the scenario to be simulated.
+  rpc InitialiseSimulation(InitialiseSimulationRequest) returns (InitialiseSimulationResponse);
+  // This call requests the model to simulate a single time step. The model can perform all calculations.
+  rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
+  // Finalise the simulation. The model can create a report, free resources, etc.
+  rpc FinaliseSimulation(FinaliseSimulationRequest) returns (FinaliseSimulationResponse);
+  // Cancel the simulation. Should only be handled during the "running" state of the simulation.
+  rpc CancelSimulation(CancelSimulationRequest) returns (CancelSimulationResponse);
+  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
+  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
+
+  // This method is used to update the catches and discards for a given simulation.
+  rpc UpdateCatchDisposition(UpdateCatchDispositionRequest) returns (UpdateCatchDispositionResponse);
+  // Get the biomass information for a simulation
+  rpc GetBiomass(GetBiomassRequest) returns (GetBiomassResponse);
+  // Update the EnvironmentVariables information
+  rpc UpdateEnvironmentVariables(UpdateEnvironmentVariablesRequest) returns (UpdateEnvironmentVariablesResponse);
+
+  // Ecopath Fishery interfaces
+  // This method is used to retrieve the catches and discards for a given simulation and time period.
+  rpc GetCatchDisposition(GetCatchDispositionRequest) returns (GetCatchDispositionResponse);
+  // This method has to be implemented to provide the fishing activity
+  rpc GetFishingActivity(GetFishingActivityRequest) returns (GetFishingActivityResponse);
+  // This method is used to update the Harvest Control Regulations for the specified period.
+  rpc UpdateRegulations(UpdateRegulationsRequest) returns (UpdateRegulationsResponse);
+  // This method is used to retrieve the sales summary for a given simulation and time period.
+  rpc GetSales(GetSalesRequest) returns (GetSalesResponse);
+  // This method is used to update the species prices for a given simulation.
+  rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
+}

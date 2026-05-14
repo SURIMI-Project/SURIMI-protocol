@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+import "surimi/v1/simulation.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Request messages for SimulationService
+message InitialiseSimulationRequest {
+  // this is the ID of 1 simulation.
+  string simulation_id = 1;
+  // the Simulation contract.
+  Simulation simulation = 2;
+  // The name of the scenario that is used.
+  string scenario_name = 3;
+  // The end date time of the simulation. This may be earlier that the maximum end date time that is specified in the Simulation contract.
+  google.protobuf.Timestamp end_date_time = 4;
+}
+
+// The Response message
+message InitialiseSimulationResponse {
+  // this is the ID of 1 simulation.
+  string simulation_id = 1;
+}

@@ -12,9 +12,3 @@ message GetProtocolVersionRequest {}
 message GetProtocolVersionResponse {
   string protocol_version = 1;
 }
-
-// The ProtocolService is used to get the version of the protobuf files. This can be used by the model to check if it is compatible with the controller. If the model is not compatible with the controller, it can log a warning or error message, or even refuse to start.
-service ProtocolService {
-  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
-  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
-}

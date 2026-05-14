@@ -23,9 +23,3 @@ message UpdateBiomassStatisticsResponse {
   // This experiment_id identifies the experiment this request belongs to
   string experiment_id = 1;
 }
-
-// The ecology statistics consumer service has to be implemented by services that consume Biomass information
-service EcologyStatisticsConsumerService {
-  // Update the biomass statistics information
-  rpc UpdateBiomassStatistics(UpdateBiomassStatisticsRequest) returns (UpdateBiomassStatisticsResponse);
-}

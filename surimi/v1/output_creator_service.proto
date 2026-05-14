@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/cancel_experiment.proto";
+import "surimi/v1/experiment_step.proto";
+import "surimi/v1/finalise_experiment.proto";
+import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/initialise_experiment.proto";
+import "surimi/v1/update_biomass_statistics.proto";
+import "surimi/v1/update_catch_disposition_statistics.proto";
+import "surimi/v1/update_fishing_activity_statistics.proto";
+import "surimi/v1/update_sales_statistics.proto";
+import "surimi/v1/update_species_prices_statistics.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// The output creatorservice has to be implemented by services that create an output file for a given experiment
+service OutputCreatorService {
+  // Initialises the list of simulations belonging to an experiment
+  rpc InitialiseExperiment(InitialiseExperimentRequest) returns (InitialiseExperimentResponse);
+  // This call requests the model to simulate a single time step. The model can perform all calculations.
+  rpc ExperimentStep(ExperimentStepRequest) returns (ExperimentStepResponse);
+  // Cancel the experiment.
+  rpc CancelExperiment(CancelExperimentRequest) returns (CancelExperimentResponse);
+  // Finalises the experiment, which means that all the results of the simulations will be aggregated and stored in a file
+  rpc FinaliseExperiment(FinaliseExperimentRequest) returns (FinaliseExperimentResponse);
+  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
+  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
+
+  // This method is used to update the catch statistics for a given experiment.
+  rpc UpdateCatchDispositionStatistics(UpdateCatchDispositionStatisticsRequest) returns (UpdateCatchDispositionStatisticsResponse);
+  // Update the biomass statistics information
+  rpc UpdateBiomassStatistics(UpdateBiomassStatisticsRequest) returns (UpdateBiomassStatisticsResponse);
+  // This method has to be implemented to receive the fishing activity needed to calculate the new regulations
+  rpc UpdateFishingActivityStatistics(UpdateFishingActivityStatisticsRequest) returns (UpdateFishingActivityStatisticsResponse);
+  // This method is used to update the sales summary for a given experiment and time period.
+  rpc UpdateSalesStatistics(UpdateSalesStatisticsRequest) returns (UpdateSalesStatisticsResponse);
+  // This method is used to update the species price statistics for a given experiment.
+  rpc UpdateSpeciesPriceStatistics(UpdateSpeciesPriceStatisticsRequest) returns (UpdateSpeciesPriceStatisticsResponse);
+}

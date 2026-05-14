@@ -25,9 +25,3 @@ message GetEnvironmentVariablesResponse {
   // The EnvironmentVariables summary
   EnvironmentVariablesSummary environment_variables_summary = 3;
 }
-
-// The Environment provider service has to be implemented by services that provide environment information
-service EnvironmentProviderService {
-  // Get the EnvironmentVariables information for a simulation
-  rpc GetEnvironmentVariables(GetEnvironmentVariablesRequest) returns (GetEnvironmentVariablesResponse);
-}

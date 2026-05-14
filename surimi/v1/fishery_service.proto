@@ -2,58 +2,22 @@ syntax = "proto3";
 
 package surimi.v1;
 
-import "google/protobuf/timestamp.proto";
-import "surimi/v1/simulation.proto";
+import "surimi/v1/cancel_simulation.proto";
+import "surimi/v1/finalise_simulation.proto";
+import "surimi/v1/get_catch_disposition.proto";
+import "surimi/v1/get_fishing_activity.proto";
+import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/get_sales.proto";
+import "surimi/v1/initialise_simulation.proto";
+import "surimi/v1/simulate_step.proto";
+import "surimi/v1/update_biomass.proto";
+import "surimi/v1/update_regulations.proto";
+import "surimi/v1/update_species_prices.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-// Request messages for SimulationService
-message InitialiseSimulationRequest {
-  // this is the ID of 1 simulation.
-  string simulation_id = 1;
-  // the Simulation contract.
-  Simulation simulation = 2;
-  // The name of the scenario that is used.
-  string scenario_name = 3;
-  // The end date time of the simulation. This may be earlier that the maximum end date time that is specified in the Simulation contract.
-  google.protobuf.Timestamp end_date_time = 4;
-}
-
-// The Response message
-message InitialiseSimulationResponse {
-  // this is the ID of 1 simulation.
-  string simulation_id = 1;
-}
-
-message FinaliseSimulationRequest {
-  string simulation_id = 1;
-}
-
-message FinaliseSimulationResponse {
-  string simulation_id = 1;
-}
-
-message CancelSimulationRequest {
-  string simulation_id = 1;
-}
-
-message CancelSimulationResponse {
-  string simulation_id = 1;
-}
-
-message SimulateStepRequest {
-  string simulation_id = 1;
-  // current date and time of the simulation
-  google.protobuf.Timestamp current_date_time = 2;
-}
-
-message SimulateStepResponse {
-  string simulation_id = 1;
-}
-
-// The simulation service definition. It controlls initialising, starting, canceling And finalising a simulation.  All models should implement this interface.
-service SimulationService {
+service FisheryService {
   // Initialise a new simulation
   // The InitialiseRequest message contains a 'contract' of the simulation, describing the context in which the simulation will run.
   // It will contain, for example, a list of all possible SpeciesCodes, PortCodes, GearCodes, etc. that the simulation may use.
@@ -71,4 +35,17 @@ service SimulationService {
   rpc FinaliseSimulation(FinaliseSimulationRequest) returns (FinaliseSimulationResponse);
   // Cancel the simulation. Should only be handled during the "running" state of the simulation.
   rpc CancelSimulation(CancelSimulationRequest) returns (CancelSimulationResponse);
+
+  rpc GetCatchDisposition(GetCatchDispositionRequest) returns (GetCatchDispositionResponse);
+  rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
+  // This method has to be implemented to provide the fishing activity
+  rpc GetFishingActivity(GetFishingActivityRequest) returns (GetFishingActivityResponse);
+  // This method is used to update the Harvest Control Regulations for the specified period.
+  rpc UpdateRegulations(UpdateRegulationsRequest) returns (UpdateRegulationsResponse);
+  // This method is used to retrieve the sales summary for a given simulation and time period.
+  rpc GetSales(GetSalesRequest) returns (GetSalesResponse);
+  // This method is used to update the species prices for a given simulation.
+  rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
+  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
+  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
 }

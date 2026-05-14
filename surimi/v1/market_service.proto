@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/cancel_simulation.proto";
+import "surimi/v1/finalise_simulation.proto";
+import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/get_species_prices.proto";
+import "surimi/v1/initialise_simulation.proto";
+import "surimi/v1/simulate_step.proto";
+import "surimi/v1/update_sales.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// The market service must be implemented by the market model. It provides species prices and consumes sales to calculate the prices with
+service MarketService {
+  // Initialise a new simulation
+  // The InitialiseRequest message contains a 'contract' of the simulation, describing the context in which the simulation will run.
+  // It will contain, for example, a list of all possible SpeciesCodes, PortCodes, GearCodes, etc. that the simulation may use.
+  // The model should inspect the contract and check if it can honor the contract. So if the model understands the speciesCodes, PortCodes, GearCodes, etc. listed in the contract.
+  // And if the model uses the same units, coordinate reference system, time step size, etc. as described in the contract.
+  // And that the model won't send back data that is not part of the contract.
+  // The InitialiseRequest message also contains the start date of the simulation, the maximum end date of the simulation and the step size.
+  // If the model cannot honor the contract, it should throw a GrpcException, containing a descriptive error message.
+  //
+  // The controller creates the InitialiseRequest.Simulation object by reading a yaml configuration file that describes the scenario to be simulated.
+  rpc InitialiseSimulation(InitialiseSimulationRequest) returns (InitialiseSimulationResponse);
+  // This call requests the model to simulate a single time step. The model can perform all calculations.
+  rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
+  // Finalise the simulation. The model can create a report, free resources, etc.
+  rpc FinaliseSimulation(FinaliseSimulationRequest) returns (FinaliseSimulationResponse);
+  // Cancel the simulation. Should only be handled during the "running" state of the simulation.
+  rpc CancelSimulation(CancelSimulationRequest) returns (CancelSimulationResponse);
+  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
+  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
+
+  // This method is used to retrieve the species prices for a given simulation.
+  rpc GetSpeciesPrices(GetSpeciesPricesRequest) returns (GetSpeciesPricesResponse);
+  // This method is used to update the sales summary for a given simulation and time period.
+  rpc UpdateSales(UpdateSalesRequest) returns (UpdateSalesResponse);
+}

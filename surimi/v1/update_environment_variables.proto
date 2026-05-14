@@ -23,9 +23,3 @@ message UpdateEnvironmentVariablesResponse {
   // This simulation_id identifies the simulation this request belongs to
   string simulation_id = 1;
 }
-
-// The Environment consumer service has to be implemented by services that consume Environment information
-service EnvironmentConsumerService {
-  // Update the EnvironmentVariables information
-  rpc UpdateEnvironmentVariables(UpdateEnvironmentVariablesRequest) returns (UpdateEnvironmentVariablesResponse);
-}
