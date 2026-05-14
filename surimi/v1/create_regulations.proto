@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/regulation_definition.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// This message is sent to the Regulations Provider. It contains a set of regulation definitions that are created to do the simulation with.
+message CreateRegulationsRequest {
+  string simulation_id = 1;
+  RegulationDefinitionsSummary regulations_summary = 2;
+}
+
+message CreateRegulationsResponse {
+  string simulation_id = 1;
+}

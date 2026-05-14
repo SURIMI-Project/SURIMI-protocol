@@ -20,9 +20,3 @@ message UpdateCatchDispositionRequest {
 message UpdateCatchDispositionResponse {
   string simulation_id = 1;
 }
-
-// The catch consumer service has to be implemented by a service that consumes catch information.
-service CatchConsumerService {
-  // This method is used to update the catches and discards for a given simulation.
-  rpc UpdateCatchDisposition(UpdateCatchDispositionRequest) returns (UpdateCatchDispositionResponse);
-}

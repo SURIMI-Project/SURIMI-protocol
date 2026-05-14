@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+import "surimi/v1/simulation.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message InitialiseExperimentRequest {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+  // The list of simulation_ids that are part of this experiment
+  repeated string simulation_ids = 2;
+  // the Simulation contract.
+  Simulation simulation = 3;
+  // The name of the scenario that is used.
+  string scenario_name = 4;
+  // The end date time of the simulation. This may be earlier that the maximum end date time that is specified in the Simulation contract.
+  google.protobuf.Timestamp end_date_time = 5;
+}
+
+// The response message of InitialiseExperimentRequest
+message InitialiseExperimentResponse {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+}

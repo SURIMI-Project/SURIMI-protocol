@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+import "surimi/v1/species_price.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Message that is sent to request the Species prices at a specific moment in time
+message GetSpeciesPricesRequest {
+  // This simulation_id identifies the simulation this request belongs to
+  string simulation_id = 1;
+  // The moment the Species prices are requested for
+  google.protobuf.Timestamp date_time = 2;
+}
+
+// This message returns the Species prices at a specific moment in time
+message GetSpeciesPricesResponse {
+  // This simulation_id identifies the simulation this request belongs to
+  string simulation_id = 1;
+  // The moment that these Species prices apply to
+  google.protobuf.Timestamp date_time = 2;
+  // The Species prices summary
+  SpeciesPriceSummary species_price_summary = 3;
+}

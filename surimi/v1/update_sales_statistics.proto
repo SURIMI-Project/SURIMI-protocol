@@ -24,8 +24,3 @@ message UpdateSalesStatisticsResponse {
   // This experiment_id identifies the experiment this response belongs to
   string experiment_id = 1;
 }
-
-service SalesStatisticsConsumerService {
-  // This method is used to update the sales summary for a given experiment and time period.
-  rpc UpdateSalesStatistics(UpdateSalesStatisticsRequest) returns (UpdateSalesStatisticsResponse);
-}

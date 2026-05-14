@@ -20,9 +20,3 @@ message UpdateCatchDispositionStatisticsRequest {
 message UpdateCatchDispositionStatisticsResponse {
   string experiment_id = 1;
 }
-
-// The catch statistics consumer service has to be implemented by a service that consumes catch statistics information.
-service CatchStatisticsConsumerService {
-  // This method is used to update the catch statistics for a given experiment.
-  rpc UpdateCatchDispositionStatistics(UpdateCatchDispositionStatisticsRequest) returns (UpdateCatchDispositionStatisticsResponse);
-}

@@ -18,9 +18,3 @@ message UpdateFishingActivityStatisticsRequest {
 message UpdateFishingActivityStatisticsResponse {
   string experiment_id = 1;
 }
-
-// The regulations provider service has to be implemented by services that provide regulations, such as the fishery authority. In turn, it receives fishing activity to gather feedback of the regulations
-service FishingActivityStatisticsConsumerService {
-  // This method has to be implemented to receive the fishing activity needed to calculate the new regulations
-  rpc UpdateFishingActivityStatistics(UpdateFishingActivityStatisticsRequest) returns (UpdateFishingActivityStatisticsResponse);
-}

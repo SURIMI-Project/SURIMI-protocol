@@ -20,9 +20,3 @@ message UpdateSpeciesPriceStatisticsRequest {
 message UpdateSpeciesPriceStatisticsResponse {
   string experiment_id = 1;
 }
-
-// The species price statistics consumer service must be implemented by every service that consumes species price statistics
-service SpeciesPriceStatisticsConsumerService {
-  // This method is used to update the species price statistics for a given experiment.
-  rpc UpdateSpeciesPriceStatistics(UpdateSpeciesPriceStatisticsRequest) returns (UpdateSpeciesPriceStatisticsResponse);
-}

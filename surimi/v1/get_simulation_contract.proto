@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/simulation.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message GetSimulationContractRequest {}
+
+message GetSimulationContractResponse {
+  // the Simulation contract.
+  Simulation simulation = 1;
+}

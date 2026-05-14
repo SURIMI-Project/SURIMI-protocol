@@ -20,9 +20,3 @@ message UpdateSpeciesPricesRequest {
 message UpdateSpeciesPricesResponse {
   string simulation_id = 1;
 }
-
-// The species price consumer service must be implemented by every service that consumes species prices
-service SpeciesPriceConsumerService {
-  // This method is used to update the species prices for a given simulation.
-  rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
-}

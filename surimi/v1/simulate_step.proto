@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message SimulateStepRequest {
+  string simulation_id = 1;
+  // current date and time of the simulation
+  google.protobuf.Timestamp current_date_time = 2;
+}
+
+message SimulateStepResponse {
+  string simulation_id = 1;
+}

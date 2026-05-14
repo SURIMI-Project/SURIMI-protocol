@@ -23,9 +23,3 @@ message UpdateBiomassResponse {
   // This simulation_id identifies the simulation this request belongs to
   string simulation_id = 1;
 }
-
-// The ecology consumer service has to be implemented by services that consume Biomass information
-service EcologyConsumerService {
-  // Update the biomass information
-  rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
-}
