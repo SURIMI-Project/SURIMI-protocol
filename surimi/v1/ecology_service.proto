@@ -44,7 +44,7 @@ service EcologyService {
   rpc UpdateCatchDisposition(UpdateCatchDispositionRequest) returns (UpdateCatchDispositionResponse);
   // Get the biomass information for a simulation
   rpc GetBiomass(GetBiomassRequest) returns (GetBiomassResponse);
-  // Update the EnvironmentVariables information
+  // Update the EnvironmentVariables information for a simulation
   rpc UpdateEnvironmentVariables(UpdateEnvironmentVariablesRequest) returns (UpdateEnvironmentVariablesResponse);
 
   // Ecopath Fishery interfaces
