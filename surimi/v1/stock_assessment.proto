@@ -7,19 +7,19 @@ import "surimi/v1/species.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-message SpeciesStockAssesment {
+message SpeciesStockAssessment {
   Species species = 1;
-  repeated StockAssesment stock_assesments = 2;
+  repeated StockAssessment stock_assessments = 2;
 }
 
-// the stock assesment for a specific year
-message StockAssesment {
+// the stock assessment for a specific year
+message StockAssessment {
   int32 year = 1;
   double exploitation = 2;
   double stock_status = 3;
 }
 
 // The summary of the stock assessment
-message StockAssesmentSummary {
-  repeated SpeciesStockAssesment species_stock_assesments = 1;
+message StockAssessmentSummary {
+  repeated SpeciesStockAssessment species_stock_assessments = 1;
 }
