@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/stock_assessment.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Message that is sent to request the stock assessment (devided by species)
+message GetStockAssessmentRequest {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+}
+
+// This message returns the stock assessment (devided by species)
+message GetStockAssessmentResponse {
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
+  // The stock assessment summary
+  StockAssessmentSummary stock_assessment_summary = 3;
+}
