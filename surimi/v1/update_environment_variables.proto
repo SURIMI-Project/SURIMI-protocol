@@ -10,8 +10,8 @@ option java_package = "eu.project.surimi";
 
 // This is an output message, containing the Environment Variables at the moment of date_time
 message UpdateEnvironmentVariablesRequest {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
   // The moment that this EnvironmentVariables is calculated for
   google.protobuf.Timestamp date_time = 2;
   // The EnvironmentVariables summary
@@ -20,6 +20,6 @@ message UpdateEnvironmentVariablesRequest {
 
 // The response message of UpdateEnvironmentVariablesRequest
 message UpdateEnvironmentVariablesResponse {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
 }
