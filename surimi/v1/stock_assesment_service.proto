@@ -6,6 +6,7 @@ import "surimi/v1/cancel_experiment.proto";
 import "surimi/v1/experiment_step.proto";
 import "surimi/v1/finalise_experiment.proto";
 import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/get_stock_assesment.proto";
 import "surimi/v1/initialise_experiment.proto";
 import "surimi/v1/update_biomass_statistics.proto";
 import "surimi/v1/update_catch_disposition_statistics.proto";
@@ -30,4 +31,6 @@ service StockAssesmentService {
   rpc UpdateCatchDispositionStatistics(UpdateCatchDispositionStatisticsRequest) returns (UpdateCatchDispositionStatisticsResponse);
   // Update the biomass statistics information
   rpc UpdateBiomassStatistics(UpdateBiomassStatisticsRequest) returns (UpdateBiomassStatisticsResponse);
+  // Get the stock assesment information for a given experiment.
+  rpc GetStockAssesment(GetStockAssesmentRequest) returns (GetStockAssesmentResponse);
 }
