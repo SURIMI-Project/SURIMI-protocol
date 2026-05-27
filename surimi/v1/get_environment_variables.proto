@@ -10,16 +10,16 @@ option java_package = "eu.project.surimi";
 
 // Message that is sent to request the Environment Variables at a specific moment in time
 message GetEnvironmentVariablesRequest {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
   // The moment the EnvironmentVariables is requested for
   google.protobuf.Timestamp date_time = 2;
 }
 
 // This message returns the Environment Variables at the moment of date_time
 message GetEnvironmentVariablesResponse {
-  // This simulation_id identifies the simulation this request belongs to
-  string simulation_id = 1;
+  // This experiment_id identifies the experiment this request belongs to
+  string experiment_id = 1;
   // The moment that these Environment Variables apply to
   google.protobuf.Timestamp date_time = 2;
   // The EnvironmentVariables summary
