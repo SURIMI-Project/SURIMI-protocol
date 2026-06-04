@@ -9,16 +9,22 @@ option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
 message Sale {
+  // The species that is being sold. This can be one of the species specified in the contract.
   Species species = 1;
+  // The fleet segment that is making the sale. This can be one of the fleet segments specified in the contract.
   FleetSegment fleet_segment = 2;
+  // The quantity of the sale, in the unit specified in the contract. This will typically be in Kg.
   double quantity = 3;
+  // The value of the Sale, in the currency specified in the MarketSales.
   double value = 4;
 }
 
 message MarketSales {
-  // for the western med case, 2 letter country code (ISO 3166-1 alpha-2) plus 3 letter port code according to https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
+  // The market_code can be one of the market codes specified in the contract.
   string market_code = 1;
+  // The currency of the sales. This can be one of the currencies specified in the contract.
   string currency = 2;
+  // A collection of sales that are made in the specified market, for this time period.
   repeated Sale sales = 3;
 }
 
