@@ -2,9 +2,9 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 import "surimi/v1/regulation_definition.proto";
-import "buf/validate/validate.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
