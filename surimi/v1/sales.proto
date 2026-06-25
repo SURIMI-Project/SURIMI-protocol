@@ -4,6 +4,7 @@ package surimi.v1;
 
 import "surimi/v1/fleet_segment.proto";
 import "surimi/v1/species.proto";
+import "validate/validate.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
@@ -14,7 +15,7 @@ message Sale {
   // The fleet segment that is making the sale. This can be one of the fleet segments specified in the contract.
   FleetSegment fleet_segment = 2;
   // The quantity of the sale, in the unit specified in the contract. This will typically be in Kg.
-  double quantity = 3;
+  double quantity = 3 [(validate.rules).double = {gte: 1}];
   // The value of the Sale, in the currency specified in the MarketSales.
   double value = 4;
 }

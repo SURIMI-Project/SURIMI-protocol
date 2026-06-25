@@ -3,6 +3,7 @@ syntax = "proto3";
 package surimi.v1;
 
 import "surimi/v1/species.proto";
+import "validate/validate.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
@@ -14,9 +15,15 @@ message BiomassGrid {
 
 // center of the cell
 message BiomassCell {
-  double longitude = 1;
-  double latitude = 2;
-  double biomass = 3;
+  double longitude = 1 [(validate.rules).double = {
+    gte: -180
+    lte: 180
+  }];
+  double latitude = 2 [(validate.rules).double = {
+    gte: -90
+    lte: 90
+  }];
+  double biomass = 3 [(validate.rules).double = {gte: 1}];
 }
 
 // The summary of the biomass, containing a list of BiomassGrids.

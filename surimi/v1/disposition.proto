@@ -4,6 +4,7 @@ package surimi.v1;
 
 import "surimi/v1/fleet_segment.proto";
 import "surimi/v1/species.proto";
+import "validate/validate.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
@@ -19,11 +20,11 @@ message DispositionCell {
   double longitude = 1;
   double latitude = 2;
   // every fish that is caught, before discarding
-  double gross_catch = 3;
+  double gross_catch = 3 [(validate.rules).double = {gte: 0}];
   // live discards, e.g. fish that are thrown back alive
-  double live_discards = 4;
+  double live_discards = 4 [(validate.rules).double = {gte: 0}];
   // dead discards, e.g. fish that are thrown back dead
-  double dead_discards = 5;
+  double dead_discards = 5 [(validate.rules).double = {gte: 0}];
 }
 
 message CatchDispositionSummary {

@@ -3,6 +3,9 @@ modules:
   - path: .
     name: buf.build/surimi/surimi-protocol
 
+deps:
+  - buf.build/envoyproxy/protoc-gen-validate
+
 lint:
   use:
     - STANDARD
