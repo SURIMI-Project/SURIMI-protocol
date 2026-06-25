@@ -4,7 +4,7 @@ modules:
     name: buf.build/surimi/surimi-protocol
 
 deps:
-  - buf.build/envoyproxy/protoc-gen-validate
+  - buf.build/bufbuild/protovalidate
 
 lint:
   use:
