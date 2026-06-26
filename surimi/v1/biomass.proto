@@ -23,7 +23,7 @@ message BiomassCell {
     gte: -90
     lte: 90
   }];
-  double biomass = 3 [(buf.validate.field).double = {gte: 1}];
+  double biomass = 3;
 }
 
 // The summary of the biomass, containing a list of BiomassGrids.
