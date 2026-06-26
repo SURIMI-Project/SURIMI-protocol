@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/stock_assessment.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// this message contains the stock assessment
+message UpdateStockAssessmentRequest {
+  string experiment_id = 1;
+  StockAssessmentSummary stock_assessment_summary = 3;
+}
+
+// This is the answer to the UpdateStockAssessmentRequest
+message UpdateStockAssessmentResponse {
+  string experiment_id = 1;
+}
