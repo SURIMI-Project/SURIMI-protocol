@@ -16,8 +16,10 @@ message Sale {
   FleetSegment fleet_segment = 2;
   // The quantity of the sale, in the unit specified in the contract. This will typically be in Kg.
   double quantity = 3 [(buf.validate.field).double = {gte: 1}];
+  // preservation / presentation (for example "Fresh - Whole")
+  string category_code = 4;
   // The value of the Sale, in the currency specified in the MarketSales.
-  double value = 4;
+  double value = 5;
 }
 
 message MarketSales {
