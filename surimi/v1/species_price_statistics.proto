@@ -10,7 +10,8 @@ option java_package = "eu.project.surimi";
 
 message SpeciesPriceStatistics {
   Species species = 1;
-  string gear_code = 2;
+  // preservation / presentation (for example "Fresh - Whole")
+  string category_code = 2;
   // for the western med case, 2 letter country code (ISO 3166-1 alpha-2) plus 3 letter port code according to https://unece.org/trade/cefact/unlocode-code-list-country-and-territory
   string market_code = 3;
   DoubleStatistics price = 4;
