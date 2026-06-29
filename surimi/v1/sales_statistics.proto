@@ -13,7 +13,9 @@ message SaleStatistics {
   Species species = 1;
   FleetSegment fleet_segment = 2;
   DoubleStatistics quantity = 3;
-  DoubleStatistics value = 4;
+  // preservation / presentation (for example "Fresh - Whole")
+  string category_code = 4;
+  DoubleStatistics value = 5;
 }
 
 message MarketSalesStatistics {
