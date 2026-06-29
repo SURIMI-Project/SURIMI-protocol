@@ -3,6 +3,7 @@ syntax = "proto3";
 package surimi.v1;
 
 import "surimi/v1/get_all_simulation_statuses.proto";
+import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_simulation_contract.proto";
 import "surimi/v1/remove_experiment.proto";
 import "surimi/v1/submit_experiment.proto";
@@ -22,4 +23,6 @@ service ControllerService {
   // Gets the simulation contract. This method can be used by, for example, the GUI to get the simulation contract, so it can check which species codes, port codes, gear codes, etc. are used in the simulation.
   // This method reads the yaml file and returns the simulation contract.
   rpc GetSimulationContract(GetSimulationContractRequest) returns (GetSimulationContractResponse);
+  // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
+  rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
 }
