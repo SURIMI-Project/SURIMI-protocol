@@ -16,6 +16,7 @@ message Standards {
   string currency = 6;
   // 3 letter country code (ISO 3166-1 alpha-3)
   string country_code = 7;
+  // there is no strict standard for category_code. (for example "Fresh - Whole")
   string category_code = 8;
   Measurement measurements = 9;
 }
