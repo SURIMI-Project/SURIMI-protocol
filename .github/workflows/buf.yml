@@ -15,6 +15,6 @@ jobs:
       - uses: bufbuild/buf-action@v1
         with:
           # Publishing schema changes to the BSR requires a BSR authentication token.
-          token: ${{ secrets.BUF_TOKEN }}
+          token: ${{ secrets.BSR_TOKEN }}
           # Include a GitHub token to ensure API requests aren't rate limited.
           github_token: ${{ secrets.GITHUB_TOKEN }}
