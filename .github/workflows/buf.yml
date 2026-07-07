@@ -10,17 +10,19 @@ permissions:
 jobs:
   buf:
     runs-on: ubuntu-latest
+    env:
+      BUF_TOKEN: ${{ secrets.BUF_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: bufbuild/buf-action@v1
-        if: secrets.BUF_TOKEN != ''
+        if: ${{ env.BUF_TOKEN != '' }}
         with:
           # Publishing schema changes to the BSR requires a BSR authentication token.
-          token: ${{ secrets.BUF_TOKEN }}
+          token: ${{ env.BUF_TOKEN }}
           # Include a GitHub token to ensure API requests aren't rate limited.
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: bufbuild/buf-action@v1
-        if: secrets.BUF_TOKEN == ''
+        if: ${{ env.BUF_TOKEN == '' }}
         with:
           # Include a GitHub token to ensure API requests aren't rate limited.
           github_token: ${{ secrets.GITHUB_TOKEN }}
