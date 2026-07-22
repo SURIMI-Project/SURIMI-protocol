@@ -9,6 +9,7 @@ import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_regulations.proto";
 import "surimi/v1/initialise_simulation.proto";
 import "surimi/v1/simulate_step.proto";
+import "surimi/v1/update_biomass.proto";
 import "surimi/v1/update_catch_disposition.proto";
 import "surimi/v1/update_fishing_activity.proto";
 
@@ -45,4 +46,6 @@ service FisheriesAuthorityService {
   rpc CreateRegulations(CreateRegulationsRequest) returns (CreateRegulationsResponse);
   // This method is used to update the catches and discards for a given simulation.
   rpc UpdateCatchDisposition(UpdateCatchDispositionRequest) returns (UpdateCatchDispositionResponse);
+  // This method is used to update the biomass for a given simulation.
+  rpc UpdateBiomass(UpdateBiomassRequest) returns (UpdateBiomassResponse);
 }
