@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "surimi/v1/climate_scenario.proto";
 import "surimi/v1/currency.proto";
 import "surimi/v1/fleet_segment.proto";
 import "surimi/v1/market.proto";
@@ -17,4 +18,5 @@ message Items {
   repeated Species species = 3;
   repeated FleetSegment fleet_segments = 4;
   repeated PriceCategory price_categories = 5;
+  repeated ClimateScenario climate_scenarios = 6;
 }
