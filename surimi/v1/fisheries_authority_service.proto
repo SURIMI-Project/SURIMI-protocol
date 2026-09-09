@@ -8,7 +8,6 @@ import "surimi/v1/finalise_simulation.proto";
 import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_regulations.proto";
 import "surimi/v1/initialise_simulation.proto";
-import "surimi/v1/simulate_step.proto";
 import "surimi/v1/update_biomass.proto";
 import "surimi/v1/update_catch_disposition.proto";
 
@@ -28,8 +27,6 @@ service FisheriesAuthorityService {
   //
   // The controller creates the InitialiseRequest.Simulation object by reading a yaml configuration file that describes the scenario to be simulated.
   rpc InitialiseSimulation(InitialiseSimulationRequest) returns (InitialiseSimulationResponse);
-  // This call requests the model to simulate a single time step. The model can perform all calculations.
-  rpc SimulateStep(SimulateStepRequest) returns (SimulateStepResponse);
   // Finalise the simulation. The model can create a report, free resources, etc.
   rpc FinaliseSimulation(FinaliseSimulationRequest) returns (FinaliseSimulationResponse);
   // Cancel the simulation. Should only be handled during the "running" state of the simulation.
@@ -37,7 +34,7 @@ service FisheriesAuthorityService {
   // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
   rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
 
-  // This method is used to retrieve all Harvest Control Regulations for the specified period.
+  // This method is used to retrieve all Harvest Control Regulations for the specified period. The calculation will be done in this method.
   rpc GetRegulations(GetRegulationsRequest) returns (GetRegulationsResponse);
   // This method is used to create the Harvest Control Regulations.
   rpc CreateRegulations(CreateRegulationsRequest) returns (CreateRegulationsResponse);
