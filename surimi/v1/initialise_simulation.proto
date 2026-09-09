@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "buf/validate/validate.proto";
 import "google/protobuf/timestamp.proto";
 import "surimi/v1/simulation.proto";
 
