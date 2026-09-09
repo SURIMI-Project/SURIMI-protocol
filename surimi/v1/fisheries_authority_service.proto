@@ -11,12 +11,11 @@ import "surimi/v1/initialise_simulation.proto";
 import "surimi/v1/simulate_step.proto";
 import "surimi/v1/update_biomass.proto";
 import "surimi/v1/update_catch_disposition.proto";
-import "surimi/v1/update_fishing_activity.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
-// The regulations provider service has to be implemented by services that provide regulations, such as the fishery authority. In turn, it receives fishing activity to gather feedback of the regulations
+// The regulations provider service has to be implemented by services that provide regulations, such as the fishery authority.
 service FisheriesAuthorityService {
   // Initialise a new simulation
   // The InitialiseRequest message contains a 'contract' of the simulation, describing the context in which the simulation will run.
@@ -40,8 +39,6 @@ service FisheriesAuthorityService {
 
   // This method is used to retrieve all Harvest Control Regulations for the specified period.
   rpc GetRegulations(GetRegulationsRequest) returns (GetRegulationsResponse);
-  // This method has to be implemented to receive the fishing activity needed to calculate the new regulations
-  rpc UpdateFishingActivity(UpdateFishingActivityRequest) returns (UpdateFishingActivityResponse);
   // This method is used to create the Harvest Control Regulations.
   rpc CreateRegulations(CreateRegulationsRequest) returns (CreateRegulationsResponse);
   // This method is used to update the catches and discards for a given simulation.
