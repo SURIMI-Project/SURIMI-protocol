@@ -19,14 +19,7 @@ message TargetFishingMortality {
   double f_max = 4;
 }
 
-// Describes the Allowed time policy
-message AllowedTimeDefinition {
-  Species species = 1;
-  // TODO. Describe the time that this Species can be caught
-}
-
 // This message contains all regulation definitions
 message RegulationDefinitionsSummary {
   repeated TargetFishingMortality target_fishing_mortalities = 1;
-  repeated AllowedTimeDefinition allowed_timer = 2;
 }

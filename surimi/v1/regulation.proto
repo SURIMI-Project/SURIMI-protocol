@@ -18,13 +18,7 @@ message TotalAllowableCatch {
   double catch = 3;
 }
 
-message AllowedTime {
-  Species species = 1;
-  // TODO. Describe the time that this Species can be caught
-}
-
 // This message contains all regulations that apply to this timestep
 message RegulationsSummary {
   repeated TotalAllowableCatch total_allowable_catches = 1;
-  repeated AllowedTime allowed_timer = 2;
 }
