@@ -4,6 +4,7 @@ package surimi.v1;
 
 import "surimi/v1/get_all_simulation_statuses.proto";
 import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/get_scenario_names.proto";
 import "surimi/v1/get_simulation_contract.proto";
 import "surimi/v1/remove_experiment.proto";
 import "surimi/v1/submit_experiment.proto";
@@ -25,4 +26,6 @@ service ControllerService {
   rpc GetSimulationContract(GetSimulationContractRequest) returns (GetSimulationContractResponse);
   // This method can be used to get the version of the protobuf files. It returns the protocol_version of the SDK.
   rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
+  // This method can be used to retrieve a list of all supported scenario names.
+  rpc GetScenarioNames(GetScenarioNamesRequest) returns (GetScenarioNamesResponse);
 }
