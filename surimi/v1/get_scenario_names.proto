@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// This message is used to request the list of all supported scenario names.
+message GetScenarioNamesRequest {}
+
+// This message is used to respond to the GetScenarioNamesRequest. It contains a list of all supported scenario names.
+message GetScenarioNamesResponse {
+  repeated string scenario_names = 1;
+}
