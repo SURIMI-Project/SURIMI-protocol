@@ -10,5 +10,6 @@ message GetScenarioNamesRequest {}
 
 // This message is used to respond to the GetScenarioNamesRequest. It contains a list of all supported scenario names.
 message GetScenarioNamesResponse {
+  // the list with all supported scenario names
   repeated string scenario_names = 1;
 }

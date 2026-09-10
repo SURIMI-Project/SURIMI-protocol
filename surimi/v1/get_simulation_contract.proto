@@ -8,11 +8,13 @@ import "surimi/v1/simulation.proto";
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
 
+// This message requests the contract for a given simulation scenario.
 message GetSimulationContractRequest {
   // the scenario name to get the simulation contract for. It must not be empty.
   string scenario_name = 1 [(buf.validate.field).string = {min_len: 1}];
 }
 
+// This message contains the requested contract
 message GetSimulationContractResponse {
   // the Simulation contract.
   Simulation simulation = 1;
