@@ -6,6 +6,7 @@ import "surimi/v1/cancel_simulation.proto";
 import "surimi/v1/finalise_simulation.proto";
 import "surimi/v1/get_biomass.proto";
 import "surimi/v1/get_catch_disposition.proto";
+import "surimi/v1/get_catch_disposition_totals.proto";
 import "surimi/v1/get_fishing_activity.proto";
 import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_sales.proto";
@@ -47,6 +48,8 @@ service EcologyService {
   // Ecopath Fishery interfaces
   // This method is used to retrieve the catches and discards for a given simulation and time period.
   rpc GetCatchDisposition(GetCatchDispositionRequest) returns (GetCatchDispositionResponse);
+  // This method is used to retrieve the catches and discards for a given simulation and time period, aggregated over all cells.
+  rpc GetCatchDispositionTotals(GetCatchDispositionTotalsRequest) returns (GetCatchDispositionTotalsResponse);
   // This method has to be implemented to provide the fishing activity
   rpc GetFishingActivity(GetFishingActivityRequest) returns (GetFishingActivityResponse);
   // This method is used to update the Harvest Control Regulations for the specified period.
