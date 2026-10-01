@@ -60,3 +60,4 @@ When making breaking changes to the protocol files, the Github action will fail.
 When you add the `buf skip breaking` label to the PR, the "Breaking" check is skipped.
 
 See https://buf.build/docs/bsr/ci-cd/github-actions/#skip-breaking-change-detection-using-labels
+x
