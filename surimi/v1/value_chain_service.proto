@@ -6,6 +6,7 @@ import "surimi/v1/cancel_experiment.proto";
 import "surimi/v1/experiment_step.proto";
 import "surimi/v1/finalise_experiment.proto";
 import "surimi/v1/get_protocol_version.proto";
+import "surimi/v1/get_value_chain.proto";
 import "surimi/v1/initialise_experiment.proto";
 import "surimi/v1/update_sales_statistics.proto";
 
@@ -25,4 +26,6 @@ service ValueChainService {
   rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
   // This method is used to update the sales summary for a given experiment and time period.
   rpc UpdateSalesStatistics(UpdateSalesStatisticsRequest) returns (UpdateSalesStatisticsResponse);
+  // This method is used to extract the value chain data for the whole experiment.
+  rpc GetValueChain(GetValueChainRequest) returns (GetValueChainResponse);
 }
