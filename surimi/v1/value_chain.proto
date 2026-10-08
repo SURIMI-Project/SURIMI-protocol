@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/value_chain_unit_type.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+message ValueChainValue {
+  // The unit type. Can be 'Producer', 'Processing', 'Retailer' etc.
+  ValueChainUnitType type = 1;
+  // The biomass that enters the value chain
+  double production = 2;
+  // The biomass....?????
+  double production_live_weight = 3;
+  // The value of the biomass ?????
+  double production_value = 4;
+  // ??????
+  double other_production_value = 5;
+  //
+  double ticket_revenue = 6;
+  // the amount of subsidies recieved
+  double subsidies = 7;
+  double saleries_shares = 8;
+  double input_fish = 9;
+  double input_other = 10;
+  double taxes = 11;
+  // Management, royalties, certification, observers
+  double overhead = 12;
+  double jobs_female = 13;
+  double jobs_male = 14;
+  double worker_dependents = 15;
+  double owner_dependents = 16;
+}
+
+// the value chain data for a specific year
+message ValueChainYear {
+  int32 year = 1;
+  repeated ValueChainValue values = 2;
+}
+
+// The summary of the value chain
+message ValueChainSummary {
+  repeated ValueChainYear value_chain_years = 1;
+}

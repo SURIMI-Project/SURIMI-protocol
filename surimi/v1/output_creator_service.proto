@@ -13,6 +13,7 @@ import "surimi/v1/update_fishing_activity_statistics.proto";
 import "surimi/v1/update_sales_statistics.proto";
 import "surimi/v1/update_species_prices_statistics.proto";
 import "surimi/v1/update_stock_assessment.proto";
+import "surimi/v1/update_value_chain.proto";
 
 option csharp_namespace = "Grpc.Surimi";
 option java_package = "eu.project.surimi";
@@ -42,4 +43,6 @@ service OutputCreatorService {
   rpc UpdateSpeciesPriceStatistics(UpdateSpeciesPriceStatisticsRequest) returns (UpdateSpeciesPriceStatisticsResponse);
   // This method is used to update the stock assessment for a given experiment.
   rpc UpdateStockAssessment(UpdateStockAssessmentRequest) returns (UpdateStockAssessmentResponse);
+  // This method is used to update the value chain for a given experiment.
+  rpc UpdateValueChain(UpdateValueChainRequest) returns (UpdateValueChainResponse);
 }

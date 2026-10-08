@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/value_chain.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// this message contains the value chain
+message UpdateValueChainRequest {
+  string experiment_id = 1;
+  ValueChainSummary value_chain_summary = 2;
+}
+
+// This is the answer to the UpdateValueChainRequest
+message UpdateValueChainResponse {
+  string experiment_id = 1;
+}
