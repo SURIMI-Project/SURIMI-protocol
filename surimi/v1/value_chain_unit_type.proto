@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Defines the unit type of the value chain value
+enum ValueChainUnitType {
+  VALUE_CHAIN_UNIT_TYPE_UNSPECIFIED = 0;
+  VALUE_CHAIN_UNIT_TYPE_PRODUCER = 1;
+  VALUE_CHAIN_UNIT_TYPE_PROCESSING = 2;
+  VALUE_CHAIN_UNIT_TYPE_DISTRIBUTION = 3;
+  VALUE_CHAIN_UNIT_TYPE_WHOLESAILER = 4;
+  VALUE_CHAIN_UNIT_TYPE_RETAILER = 5;
+  VALUE_CHAIN_UNIT_TYPE_CONSUMER = 6;
+}

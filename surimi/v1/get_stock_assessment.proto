@@ -18,5 +18,5 @@ message GetStockAssessmentResponse {
   // This experiment_id identifies the experiment this request belongs to
   string experiment_id = 1;
   // The stock assessment summary
-  StockAssessmentSummary stock_assessment_summary = 3;
+  StockAssessmentSummary stock_assessment_summary = 2;
 }
