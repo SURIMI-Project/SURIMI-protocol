@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package surimi.v1;
 
+import "buf/validate/validate.proto";
 import "surimi/v1/species.proto";
 
 option csharp_namespace = "Grpc.Surimi";
@@ -12,11 +13,20 @@ message TargetFishingMortality {
   // The species that this is about
   Species species = 1;
   // the lower limit of the biomass. When the biomass is below this, no fishing is allowed
-  double biomass_limit = 2;
+  double biomass_limit = 2 [(buf.validate.field).double = {
+    gt: 0
+    lte: 3300000000000
+  }];
   // the upper limit of the biomass. When the biomass is more then this, fishing is unrestricted
-  double biomass_base = 3;
-  // the maximum allowed catch
-  double f_max = 4;
+  double biomass_base = 3 [(buf.validate.field).double = {
+    gt: 0
+    lte: 3300000000000
+  }];
+  // the fishing mortality. Calculated as Catch / Biomass.
+  double f_max = 4 [(buf.validate.field).double = {
+    gt: 0
+    lte: 100
+  }];
 }
 
 // This message contains all regulation definitions
