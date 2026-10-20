@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/simulation_status.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// This message is send periodically to request the status of the provided experiments and simulations
+message GetSimulationStatusesRequest {
+  repeated string experiment_ids = 1; // list of experiment ids to get the status for
+}
+
+// The answer message containing the status of the provided experiments and simulations
+message GetSimulationStatusesResponse {
+  // list of all simulation statuses
+  repeated SimulationStatus simulation_statuses = 1;
+}
