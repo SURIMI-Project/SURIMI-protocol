@@ -6,6 +6,7 @@ import "surimi/v1/get_all_simulation_statuses.proto";
 import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_scenario_names.proto";
 import "surimi/v1/get_simulation_contract.proto";
+import "surimi/v1/get_simulation_statuses.proto";
 import "surimi/v1/remove_experiment.proto";
 import "surimi/v1/submit_experiment.proto";
 
@@ -19,6 +20,8 @@ service ControllerService {
   rpc SubmitExperiment(SubmitExperimentRequest) returns (SubmitExperimentResponse);
   // Removes the experiment with the given experiment_id.
   rpc RemoveExperiment(RemoveExperimentRequest) returns (RemoveExperimentResponse);
+  // Gets the statuses of the provided experiments. This method can be periodically called by a GUI to update a list of simulations and their statuses.
+  rpc GetSimulationStatuses(GetSimulationStatusesRequest) returns (GetSimulationStatusesResponse);
   // Gets the statuses of all simulations. This method can be periodically called by a GUI to update the list of simulations and their statuses.
   rpc GetAllSimulationStatuses(GetAllSimulationStatusesRequest) returns (GetAllSimulationStatusesResponse);
   // Gets the simulation contract. This method can be used by, for example, the GUI to get the simulation contract, so it can check which species codes, port codes, gear codes, etc. are used in the simulation.
