@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "buf/validate/validate.proto";
+import "surimi/v1/species.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// Requests the initial fishing mortality for every species in a scenario.
+message GetInitialFishingMortalitiesRequest {
+  string scenario_name = 1 [(buf.validate.field).string = {min_len: 1}];
+}
+
+// The initial fishing mortality of a species.
+message InitialFishingMortality {
+  Species species = 1;
+  double fishing_mortality = 2;
+}
+
+// The initial fishing mortalities for every species.
+message InitialFishingMortalitySummary {
+  repeated InitialFishingMortality initial_fishing_mortalities = 1;
+}
+
+// The initial fishing mortalities for every species in the requested scenario.
+message GetInitialFishingMortalitiesResponse {
+  InitialFishingMortalitySummary initial_fishing_mortality_summary = 1;
+}

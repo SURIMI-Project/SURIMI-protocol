@@ -7,6 +7,8 @@ import "surimi/v1/finalise_simulation.proto";
 import "surimi/v1/get_biomass.proto";
 import "surimi/v1/get_catch_disposition.proto";
 import "surimi/v1/get_fishing_activity.proto";
+import "surimi/v1/get_initial_biomasses.proto";
+import "surimi/v1/get_initial_fishing_mortalities.proto";
 import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_sales.proto";
 import "surimi/v1/initialise_simulation.proto";
@@ -53,6 +55,10 @@ service EcologyService {
   rpc UpdateRegulations(UpdateRegulationsRequest) returns (UpdateRegulationsResponse);
   // This method is used to retrieve the sales summary for a given simulation and time period.
   rpc GetSales(GetSalesRequest) returns (GetSalesResponse);
+  // Gets the initial biomass for every species in a scenario.
+  rpc GetInitialBiomasses(GetInitialBiomassesRequest) returns (GetInitialBiomassesResponse);
+  // Gets the initial fishing mortality for every species in a scenario.
+  rpc GetInitialFishingMortalities(GetInitialFishingMortalitiesRequest) returns (GetInitialFishingMortalitiesResponse);
   // This method is used to update the species prices for a given simulation.
   rpc UpdateSpeciesPrices(UpdateSpeciesPricesRequest) returns (UpdateSpeciesPricesResponse);
 }

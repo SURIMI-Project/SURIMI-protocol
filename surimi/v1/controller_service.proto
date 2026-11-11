@@ -3,6 +3,8 @@ syntax = "proto3";
 package surimi.v1;
 
 import "surimi/v1/get_all_simulation_statuses.proto";
+import "surimi/v1/get_initial_biomasses.proto";
+import "surimi/v1/get_initial_fishing_mortalities.proto";
 import "surimi/v1/get_protocol_version.proto";
 import "surimi/v1/get_scenario_names.proto";
 import "surimi/v1/get_simulation_contract.proto";
@@ -31,4 +33,8 @@ service ControllerService {
   rpc GetProtocolVersion(GetProtocolVersionRequest) returns (GetProtocolVersionResponse);
   // This method can be used to retrieve a list of all supported scenario names.
   rpc GetScenarioNames(GetScenarioNamesRequest) returns (GetScenarioNamesResponse);
+  // Gets the initial biomass for every species in a scenario.
+  rpc GetInitialBiomasses(GetInitialBiomassesRequest) returns (GetInitialBiomassesResponse);
+  // Gets the initial fishing mortality for every species in a scenario.
+  rpc GetInitialFishingMortalities(GetInitialFishingMortalitiesRequest) returns (GetInitialFishingMortalitiesResponse);
 }
