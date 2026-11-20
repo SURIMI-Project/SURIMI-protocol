@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package surimi.v1;
+
+import "surimi/v1/species.proto";
+
+option csharp_namespace = "Grpc.Surimi";
+option java_package = "eu.project.surimi";
+
+// The initial harvest control rule data for a species.
+message InitialHCRData {
+  Species species = 1;
+  double initial_fishing_mortality = 2;
+  double initial_biomass = 3;
+}
+
+// The initial harvest control rule data for the species in a scenario for which a HCR can be created.
+// This is the object that the controller can copy from the ecology service and pass along to its clients.
+message InitialHCRDataSummary {
+  repeated InitialHCRData initial_hcr_data = 1;
+}
