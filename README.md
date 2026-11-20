@@ -23,6 +23,8 @@ UpdatecatchDisposition(..) can be called for every Species seperately, even if t
 
 ## Ecology Services
 
+`GetInitialHCRData` on the controller and ecology services retrieves the initial harvest control rule data for a named scenario. Each `HCRData` entry contains a species and its initial fishing mortality and biomass values in `initial_fishing_mortality_summary` and `initial_biomass_summary`. It replaces `GetInitialBiomasses` and `GetInitialFishingMortalities`, so clients and service implementations must migrate to the new RPC.
+
 ## Market Services
 
 ## Style guide
