@@ -17,7 +17,7 @@ message TargetFishingMortality {
     gt: 0
     lte: 3300000000000
   }];
-  // the upper limit of the biomass. When the biomass is more then this, fishing is unrestricted
+  // the upper limit of the biomass. When the biomass is more then this, quota are calculated with f_max
   double biomass_base = 3 [(buf.validate.field).double = {
     gt: 0
     lte: 3300000000000

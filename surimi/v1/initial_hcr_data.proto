@@ -10,8 +10,16 @@ option java_package = "eu.project.surimi";
 // The initial harvest control rule data for a species.
 message InitialHCRData {
   Species species = 1;
+  // the initial fishing mortality. Calculated as the aggregated Catch of a year / Biomass.
   double initial_fishing_mortality = 2;
+  // the initial biomass. This is the biomass at the start of the simulation.
   double initial_biomass = 3;
+  // the default lower limit of the biomass. When the biomass is below this, no fishing is allowed
+  double default_biomass_limit = 4;
+  // the default upper limit of the biomass. When the biomass is more then this, quota are calculated with f_max
+  double default_biomass_base = 5;
+  // the default fishing mortality. Calculated as Catch / Biomass.
+  double default_f_max = 6;
 }
 
 // The initial harvest control rule data for the species in a scenario for which a HCR can be created.
